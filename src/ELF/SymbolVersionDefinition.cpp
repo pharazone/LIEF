@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 
 #include "LIEF/ELF/SymbolVersionDefinition.hpp"
 #include "LIEF/ELF/SymbolVersionAuxRequirement.hpp"
@@ -123,13 +123,7 @@ void SymbolVersionDefinition::hash(uint32_t hash) {
 }
 
 void SymbolVersionDefinition::accept(Visitor& visitor) const {
-  visitor.visit(this->version());
-  visitor.visit(this->flags());
-  visitor.visit(this->ndx());
-  visitor.visit(this->hash());
-  for (const SymbolVersionAux& sva : this->symbols_aux()) {
-    visitor(sva);
-  }
+  visitor.visit(*this);
 }
 
 

@@ -18,7 +18,7 @@
 
 #include "pyELF.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 #include "LIEF/ELF/Note.hpp"
 
 template<class T>
@@ -69,7 +69,7 @@ void init_ELF_Note_class(py::module& m) {
     .def("__ne__", &Note::operator!=)
     .def("__hash__",
         [] (const Note& note) {
-          return LIEF::Hash::hash(note);
+          return Hash::hash(note);
         })
 
     .def("__str__",

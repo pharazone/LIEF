@@ -34,10 +34,9 @@ namespace ELF {
 class DLL_PUBLIC Header : public Visitable {
 
   public:
-    using identity_t = std::array<uint8_t, IDENTITY::EI_NIDENT>;
+    using identity_t = std::array<uint8_t, static_cast<size_t>(IDENTITY::EI_NIDENT)>;
 
     Header(void);
-    Header(const std::vector<uint8_t>& header);
     Header(const Elf32_Ehdr *header);
     Header(const Elf64_Ehdr *header);
 

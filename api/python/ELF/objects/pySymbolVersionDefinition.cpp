@@ -18,7 +18,7 @@
 
 #include "pyELF.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 #include "LIEF/ELF/SymbolVersionDefinition.hpp"
 
 template<class T>
@@ -56,7 +56,7 @@ void init_ELF_SymbolVersionDefinition_class(py::module& m) {
     .def("__ne__", &SymbolVersionDefinition::operator!=)
     .def("__hash__",
         [] (const SymbolVersionDefinition& svd) {
-          return LIEF::Hash::hash(svd);
+          return Hash::hash(svd);
         })
 
     .def("__str__",

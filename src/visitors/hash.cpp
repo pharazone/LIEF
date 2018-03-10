@@ -30,6 +30,35 @@ Hash::Hash(size_t init_value) :
   value_{init_value}
 {}
 
+
+Hash& Hash::process(const Visitable& obj) {
+  Hash hasher;
+  obj.accept(hasher);
+  this->value_ = combine(this->value_, hasher.value());
+  return *this;
+}
+
+Hash& Hash::process(size_t integer) {
+  this->value_ = combine(this->value_, std::hash<size_t>{}(integer));
+  return *this;
+}
+
+Hash& Hash::process(const std::string& str) {
+  this->value_ = combine(this->value_, std::hash<std::string>{}(str));
+  return *this;
+}
+
+
+Hash& Hash::process(const std::u16string& str) {
+  this->value_ = combine(this->value_, std::hash<std::u16string>{}(str));
+  return *this;
+}
+
+Hash& Hash::process(const std::vector<uint8_t>& raw) {
+  this->value_ = combine(this->value_, Hash::hash(raw));
+  return *this;
+}
+
 void Hash::visit(size_t n) {
   this->value_ = combine(this->value_, std::hash<size_t>{}(n));
 }

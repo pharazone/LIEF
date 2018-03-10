@@ -18,7 +18,7 @@
 
 #include "pyELF.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 #include "LIEF/ELF/GnuHash.hpp"
 
 
@@ -95,7 +95,7 @@ void init_ELF_GnuHash_class(py::module& m) {
     .def("__ne__", &GnuHash::operator!=)
     .def("__hash__",
         [] (const GnuHash& gnuhash) {
-          return LIEF::Hash::hash(gnuhash);
+          return Hash::hash(gnuhash);
         })
 
     .def("__str__",

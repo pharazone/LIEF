@@ -45,7 +45,7 @@ struct Elf_Binary_t {
   void*              handler;
   const char*        name;
   const char*        interpreter;
-  enum ELF_CLASS     type;
+  enum LIEF_ELF_ELF_CLASS     type;
   Elf_Header_t       header;
   Elf_Section_t      **sections;
   Elf_Segment_t      **segments;

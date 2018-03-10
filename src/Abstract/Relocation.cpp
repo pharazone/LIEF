@@ -62,8 +62,7 @@ void Relocation::size(size_t size) {
 }
 
 void Relocation::accept(Visitor& visitor) const {
-  visitor.visit(this->address());
-  visitor.visit(this->size());
+  visitor.visit(*this);
 }
 
 

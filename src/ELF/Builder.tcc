@@ -28,7 +28,7 @@ template<class ELF_T>
 void Builder::build(void) {
 
 
-  std::string type = ((this->binary_->type_ == ELFCLASS32) ? "ELF32" : "ELF64");
+  std::string type = ((this->binary_->type_ == ELF_CLASS::ELFCLASS32) ? "ELF32" : "ELF64");
   VLOG(VDEBUG) << "== Re-building " << type << " ==";
   try {
     this->build_hash_table<ELF_T>();
@@ -669,7 +669,7 @@ void Builder::build_symbol_hash(void) {
   uint32_t nchain  = hashtable_stream.read_integer<uint32_t>(0 + sizeof(uint32_t));
 
 
-  std::vector<uint8_t> new_hash_table((nbucket + nchain + 2) * sizeof(uint32_t), STN_UNDEF);
+  std::vector<uint8_t> new_hash_table((nbucket + nchain + 2) * sizeof(uint32_t), 0);
   uint32_t *new_hash_table_ptr = reinterpret_cast<uint32_t*>(new_hash_table.data());
 
   new_hash_table_ptr[0] = nbucket;
@@ -681,17 +681,17 @@ void Builder::build_symbol_hash(void) {
   for (const Symbol* symbol : this->binary_->dynamic_symbols_) {
     uint32_t hash = 0;
 
-    if (this->binary_->type_ == ELFCLASS32) {
+    if (this->binary_->type_ == ELF_CLASS::ELFCLASS32) {
       hash = hash32(symbol->name().c_str());
     } else {
       hash = hash64(symbol->name().c_str());
     }
 
-    if(bucket[hash % nbucket] ==  STN_UNDEF) {
+    if(bucket[hash % nbucket] == 0) {
       bucket[hash % nbucket] = idx;
     } else {
       uint32_t value = bucket[hash % nbucket];
-      while (chain[value] != STN_UNDEF) {
+      while (chain[value] != 0) {
         value = chain[value];
         if (value >= (new_hash_table.size() / sizeof(uint32_t))) {
           LOG(ERROR) << "Out-of-bound for symbol" << symbol->name() << std::endl

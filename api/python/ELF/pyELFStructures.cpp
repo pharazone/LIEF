@@ -360,6 +360,7 @@ void init_ELF_Structures_enum(py::module& m) {
 
   //! Enum for the *p_flags* field of ElfXX_Phdr
   py::enum_<ELF_SEGMENT_FLAGS>(m, "SEGMENT_FLAGS", py::arithmetic())
+    .value(PY_ENUM(ELF_SEGMENT_FLAGS::PF_NONE))
     .value(PY_ENUM(ELF_SEGMENT_FLAGS::PF_X))
     .value(PY_ENUM(ELF_SEGMENT_FLAGS::PF_W))
     .value(PY_ENUM(ELF_SEGMENT_FLAGS::PF_R))

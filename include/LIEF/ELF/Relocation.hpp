@@ -47,6 +47,10 @@ class DLL_PUBLIC Relocation : public LIEF::Relocation {
     Relocation(const Elf64_Rel*  header);
     Relocation(const Elf64_Rela* header);
     Relocation(uint64_t address, uint32_t type = 0, int64_t addend = 0, bool isRela = false);
+
+    template<class T>
+    Relocation(uint64_t address, T type, int64_t addend = 0, bool isRela = false);
+
     Relocation(void);
     virtual ~Relocation(void);
 
@@ -89,6 +93,12 @@ class DLL_PUBLIC Relocation : public LIEF::Relocation {
     ARCH                architecture_;
     RELOCATION_PURPOSES purpose_;
 };
+
+
+template<class T>
+Relocation::Relocation(uint64_t address, T type, int64_t addend, bool isRela) :
+  Relocation{address, static_cast<uint32_t>(type), addend, isRela}
+{}
 
 }
 }

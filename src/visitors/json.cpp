@@ -33,7 +33,7 @@ JsonVisitor::JsonVisitor(const json& node) :
 
 JsonVisitor::JsonVisitor(const JsonVisitor&)            = default;
 JsonVisitor& JsonVisitor::operator=(const JsonVisitor&) = default;
-
+#if 0
 void JsonVisitor::visit(const Binary& binary) {
   JsonVisitor header_visitor;
   header_visitor(binary.header());
@@ -90,6 +90,7 @@ void JsonVisitor::visit(const Section& section) {
 void JsonVisitor::visit(const Symbol& symbol) {
   this->node_["name"] = symbol.name();
 }
+#endif
 
 
 const json& JsonVisitor::get(void) const {

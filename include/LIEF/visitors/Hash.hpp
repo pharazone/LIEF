@@ -27,19 +27,58 @@ namespace LIEF {
 class DLL_PUBLIC Hash : public Visitor {
 
   public:
-  using Visitor::visit;
-  Hash(void);
-  Hash(size_t init_value);
+  template<class H = Hash>
+  static size_t hash(const Visitable& obj);
 
-  template<class T>
-  static size_t hash(const T& obj);
+  static size_t hash(const std::vector<uint8_t>& raw);
+  static size_t hash(const void* raw, size_t size);
 
   // combine two elements to produce a size_t.
   template<typename U = size_t>
   static inline size_t combine(size_t lhs, U rhs);
 
-  static size_t hash(const std::vector<uint8_t>& raw);
-  static size_t hash(const void* raw, size_t size);
+  public:
+  using Visitor::visit;
+  Hash(void);
+  Hash(size_t init_value);
+
+  virtual Hash& process(const Visitable& obj);
+  virtual Hash& process(size_t integer);
+  virtual Hash& process(const std::string& str);
+  virtual Hash& process(const std::u16string& str);
+  virtual Hash& process(const std::vector<uint8_t>& raw);
+
+  template<class T, typename = typename std::enable_if<std::is_enum<T>::value>::type>
+  Hash& process(T v) {
+    return this->process(static_cast<size_t>(v));
+  }
+
+
+  template<class T, size_t N>
+  Hash& process(const std::array<T, N>& array) {
+    this->process(std::begin(array), std::end(array));
+    return *this;
+  }
+
+  template<class T>
+  Hash& process(const std::vector<T>& vector) {
+    this->process(std::begin(vector), std::end(vector));
+    return *this;
+  }
+
+  template<class T>
+  Hash& process(const std::set<T>& set) {
+    this->process(std::begin(set), std::end(set));
+    return *this;
+  }
+
+  template<class InputIt>
+  Hash& process(InputIt begin, InputIt end) {
+    for (auto&& it = begin; it != end; ++it) {
+      this->process(*it);
+    }
+    return *this;
+  }
 
   virtual void visit(size_t n) override;
   virtual void visit(const std::string& str) override;
@@ -59,13 +98,11 @@ size_t Hash::combine(size_t lhs, U rhs) {
 }
 
 
-template<class T>
-size_t Hash::hash(const T& obj) {
-  static_assert(std::is_base_of<Visitable, T>::value, "Hash require inheritance of 'Visitable'");
-  Hash hasher;
-  obj.accept(hasher);
-  return hasher.value();
-
+template<class H>
+size_t Hash::hash(const Visitable& obj) {
+  H h;
+  obj.accept(h);
+  return h.value();
 }
 
 }

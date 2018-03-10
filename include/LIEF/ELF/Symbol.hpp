@@ -111,6 +111,10 @@ class DLL_PUBLIC Symbol : public LIEF::Symbol {
     void information(uint8_t info);
     void shndx(uint16_t idx);
 
+    inline void shndx(SYMBOL_SECTION_INDEX idx) {
+      this->shndx_ = static_cast<uint16_t>(idx);
+    }
+
     //! @brief Check if the current symbol is exported
     bool is_exported(void) const;
 

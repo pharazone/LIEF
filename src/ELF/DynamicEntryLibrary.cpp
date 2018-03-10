@@ -50,9 +50,7 @@ void DynamicEntryLibrary::name(const std::string& name) {
 
 
 void DynamicEntryLibrary::accept(Visitor& visitor) const {
-  DynamicEntry::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-  visitor.visit(this->name());
+  visitor.visit(*this);
 }
 
 std::ostream& DynamicEntryLibrary::print(std::ostream& os) const {

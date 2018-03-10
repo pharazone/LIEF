@@ -200,10 +200,7 @@ double Section::entropy(void) const {
 
 
 void Section::accept(Visitor& visitor) const {
-  visitor.visit(this->name());
-  visitor.visit(this->virtual_address());
-  visitor.visit(this->offset());
-  visitor.visit(this->size());
+  visitor.visit(*this);
 }
 
 

@@ -23,7 +23,7 @@
 
 #include "LIEF/logging++.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 
 #include "LIEF/ELF/EnumToString.hpp"
 
@@ -124,9 +124,7 @@ uint64_t Note::size(void) const {
 }
 
 void Note::accept(Visitor& visitor) const {
-  visitor.visit(this->name());
-  visitor.visit(this->type());
-  visitor.visit(this->description());
+  visitor.visit(*this);
 }
 
 

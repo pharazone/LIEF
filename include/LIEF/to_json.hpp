@@ -23,7 +23,7 @@
 #include "LIEF/json.hpp"
 
 #include "LIEF/visitors/json.hpp"
-#include "LIEF/visitors/elf_json.hpp"
+#include "LIEF/ELF/json.hpp"
 #include "LIEF/visitors/pe_json.hpp"
 
 #include "LIEF/Abstract/Abstract.hpp"

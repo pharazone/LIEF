@@ -45,9 +45,8 @@ set(LIEF_MACHO_SRC
   "${CMAKE_CURRENT_LIST_DIR}/BindingInfo.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/ExportInfo.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/ThreadCommand.cpp"
-  "${CMAKE_CURRENT_LIST_DIR}/RPathCommand.cpp"  
+  "${CMAKE_CURRENT_LIST_DIR}/RPathCommand.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/ParserConfig.cpp"
-  "${CMAKE_CURRENT_LIST_DIR}/Visitor.cpp"
 )
 
 set(LIEF_MACHO_INCLUDE_FILES

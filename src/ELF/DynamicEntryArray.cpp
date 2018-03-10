@@ -98,11 +98,7 @@ uint64_t& DynamicEntryArray::operator[](size_t idx) {
 }
 
 void DynamicEntryArray::accept(Visitor& visitor) const {
-  DynamicEntry::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-  for (uint64_t x : this->array()) {
-    visitor.visit(x);
-  }
+  visitor.visit(*this);
 }
 
 std::ostream& DynamicEntryArray::print(std::ostream& os) const {

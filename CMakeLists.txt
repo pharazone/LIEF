@@ -415,19 +415,6 @@ else()
 endif()
 
 
-if (LIEF_ELF AND LIEF_ENABLE_JSON)
-  target_sources(LIB_LIEF_STATIC PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/visitors/elf_json.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/visitors/elf_json.hpp"
-  )
-
-  target_sources(LIB_LIEF_SHARED PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/visitors/elf_json.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/visitors/elf_json.hpp"
-  )
-endif()
-
-
 # PE Part
 # =======
 include("${CMAKE_CURRENT_SOURCE_DIR}/src/PE/CMakeLists.txt")

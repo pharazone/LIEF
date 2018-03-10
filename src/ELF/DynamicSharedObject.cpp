@@ -50,9 +50,7 @@ void DynamicSharedObject::name(const std::string& name) {
 }
 
 void DynamicSharedObject::accept(Visitor& visitor) const {
-  DynamicEntry::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-  visitor.visit(this->name());
+  visitor.visit(*this);
 }
 
 

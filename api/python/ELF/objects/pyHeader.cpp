@@ -18,7 +18,7 @@
 
 #include "pyELF.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 #include "LIEF/ELF/Header.hpp"
 
 template<class T>
@@ -34,7 +34,6 @@ void init_ELF_Header_class(py::module& m) {
   //
   py::class_<Header>(m, "Header")
     .def(py::init<>())
-    .def(py::init<const std::vector<uint8_t>&>())
 
     .def_property("identity_class",
         static_cast<getter_t<ELF_CLASS>>(&Header::identity_class),
@@ -160,7 +159,7 @@ void init_ELF_Header_class(py::module& m) {
     .def("__ne__", &Header::operator!=)
     .def("__hash__",
         [] (const Header& header) {
-          return LIEF::Hash::hash(header);
+          return Hash::hash(header);
         })
 
     .def("__contains__",

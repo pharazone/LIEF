@@ -45,7 +45,6 @@ set(LIEF_PE_SRC
   "${CMAKE_CURRENT_LIST_DIR}/resources/ResourceStringFileInfo.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/resources/LangCodeItem.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/resources/ResourceIcon.cpp"
-  "${CMAKE_CURRENT_LIST_DIR}/Visitor.cpp"
 )
 
 set(LIEF_PE_LOAD_CONFIGURATION_SRC

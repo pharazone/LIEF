@@ -17,7 +17,7 @@
 #include <iomanip>
 
 #include "LIEF/exception.hpp"
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/ELF/hash.hpp"
 
 #include "LIEF/ELF/DynamicEntry.hpp"
 #include "LIEF/ELF/EnumToString.hpp"
@@ -90,9 +90,7 @@ void DynamicEntry::array(const std::vector<uint64_t>&) {
 }
 
 void DynamicEntry::accept(Visitor& visitor) const {
-  visitor(*this); // Double dispatch to avoid down-casting
-  visitor.visit(this->value());
-  visitor.visit(this->tag());
+  visitor.visit(*this);
 }
 
 

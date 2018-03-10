@@ -21,27 +21,7 @@
 void init_json_functions(py::module& m) {
 
 #if defined(LIEF_ELF_SUPPORT)
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Binary,                      LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Header,                      LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Section,                     LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Segment,                     LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Note,                        LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::GnuHash,                     LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SysvHash,                    LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntry,                LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntryArray,           LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntryLibrary,         LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntryRpath,           LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntryRunPath,         LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicSharedObject,         LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::DynamicEntryFlags,           LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Symbol,                      LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::Relocation,                  LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SymbolVersion,               LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SymbolVersionAux,            LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SymbolVersionAuxRequirement, LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SymbolVersionRequirement,    LIEF::ELF::JsonVisitor>);
-    m.def("to_json", &LIEF::to_json_str<LIEF::ELF::SymbolVersionDefinition,     LIEF::ELF::JsonVisitor>);
+    m.def("to_json", &LIEF::ELF::to_json_str);
 #endif
 
 
@@ -94,11 +74,11 @@ void init_json_functions(py::module& m) {
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::LoadConfigurationV7, LIEF::PE::JsonVisitor>);
 #endif
 
-    m.def("to_json",          &LIEF::to_json_str<LIEF::Binary>);
-    m.def("abstract_to_json", &LIEF::to_json_str<LIEF::Binary>);
-    m.def("to_json",          &LIEF::to_json_str<LIEF::Header>);
-    m.def("to_json",          &LIEF::to_json_str<LIEF::Section>);
-    m.def("to_json",          &LIEF::to_json_str<LIEF::Symbol>);
+    //m.def("to_json",          &LIEF::to_json_str<LIEF::Binary>);
+    //m.def("abstract_to_json", &LIEF::to_json_str<LIEF::Binary>);
+    //m.def("to_json",          &LIEF::to_json_str<LIEF::Header>);
+    //m.def("to_json",          &LIEF::to_json_str<LIEF::Section>);
+    //m.def("to_json",          &LIEF::to_json_str<LIEF::Symbol>);
 
 
 

@@ -225,7 +225,7 @@ class DLL_PUBLIC Parser : public LIEF::Parser {
 
     std::unique_ptr<VectorStream> stream_;
     Binary*                       binary_;
-    uint32_t                      type_;
+    ELF_CLASS                     type_;
     DYNSYM_COUNT_METHODS          count_mtd_;
 };
 

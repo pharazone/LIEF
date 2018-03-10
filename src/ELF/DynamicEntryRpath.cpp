@@ -132,9 +132,7 @@ DynamicEntryRpath& DynamicEntryRpath::operator-=(const std::string& path) {
 }
 
 void DynamicEntryRpath::accept(Visitor& visitor) const {
-  DynamicEntry::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-  visitor.visit(this->rpath());
+  visitor.visit(*this);
 }
 
 std::ostream& DynamicEntryRpath::print(std::ostream& os) const {
