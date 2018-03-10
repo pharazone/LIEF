@@ -25,7 +25,7 @@ void init_json_functions(py::module& m) {
 #endif
 
 
-#if defined(LIEF_PE_SUPPORT)
+#if 0
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::Binary,                  LIEF::PE::JsonVisitor>);
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::DosHeader,               LIEF::PE::JsonVisitor>);
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::RichHeader,              LIEF::PE::JsonVisitor>);
@@ -73,9 +73,9 @@ void init_json_functions(py::module& m) {
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::LoadConfigurationV6, LIEF::PE::JsonVisitor>);
     m.def("to_json", &LIEF::to_json_str<LIEF::PE::LoadConfigurationV7, LIEF::PE::JsonVisitor>);
 #endif
-
+    //m.def("to_json", &LIEF::to_json_str);
     //m.def("to_json",          &LIEF::to_json_str<LIEF::Binary>);
-    //m.def("abstract_to_json", &LIEF::to_json_str<LIEF::Binary>);
+    m.def("abstract_to_json", &LIEF::to_json_str);
     //m.def("to_json",          &LIEF::to_json_str<LIEF::Header>);
     //m.def("to_json",          &LIEF::to_json_str<LIEF::Section>);
     //m.def("to_json",          &LIEF::to_json_str<LIEF::Symbol>);

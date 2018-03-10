@@ -7,10 +7,12 @@ set(LIEF_ABSTRACT_SRC
   "${CMAKE_CURRENT_LIST_DIR}/Section.tcc"
   "${CMAKE_CURRENT_LIST_DIR}/Parser.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/Relocation.cpp"
+
+  "${CMAKE_CURRENT_LIST_DIR}/json.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/hash.cpp"
 )
 
 set(LIEF_ABSTRACT_INCLUDE_FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Abstract.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Binary.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Symbol.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/EnumToString.hpp"
@@ -18,6 +20,8 @@ set(LIEF_ABSTRACT_INCLUDE_FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Section.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Parser.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/enums.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/json.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/hash.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/type_traits.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract/Relocation.hpp"
 )

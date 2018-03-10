@@ -364,6 +364,7 @@ set(LIBLIEF_SOURCE_FILES
 set(LIEF_INC_FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Builder.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/ELF.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Abstract.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/exception.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/iostream.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/iterators.hpp"
@@ -486,7 +487,9 @@ endif()
 
 set(LIEF_PRIVATE_INCLUDE_DIR
   "${LIEF_PUBLIC_INCLUDE_DIR}"
+  "${LIEF_PUBLIC_INCLUDE_DIR}"
   "${LIBRANG_SOURCE_DIR}/include"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src"
   "${ELG_SOURCE_DIR}"
   "${MBEDTLS_INCLUDE_DIRS}")
 

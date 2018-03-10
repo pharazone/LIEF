@@ -25,19 +25,32 @@ using add_pointer_t = typename std::add_pointer<T>::type;
 template< class T >
 using decay_t = typename std::decay<T>::type;
 
+template< class T >
+using add_const_t = typename std::add_const<T>::type;
+
 namespace LIEF {
 
 class Visitable {
+  public:
+  template<class T>
+  using output_t = add_pointer_t<decay_t<T>>;
+
+  template<class T>
+  using output_const_t = add_pointer_t<add_const_t<decay_t<T>>>;
+
   public:
   Visitable(void);
   Visitable(const Visitable& other);
   Visitable& operator=(const Visitable& other);
 
   template<class T>
-  DLL_LOCAL bool is(void);
+  DLL_LOCAL bool is(void) const;
 
   template<class T>
-  DLL_LOCAL add_pointer_t<decay_t<T>> as(void);
+  DLL_LOCAL output_t<T> as(void);
+
+  template<class T>
+  DLL_LOCAL output_const_t<T> as(void) const;
 
   virtual ~Visitable(void);
   virtual void accept(Visitor& visitor) const = 0;

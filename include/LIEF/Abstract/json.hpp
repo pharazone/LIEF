@@ -13,38 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef LIEF_TO_JSON_H_
-#define LIEF_TO_JSON_H_
+#ifndef LIEF_ABSTRACT_JSON_H_
+#define LIEF_ABSTRACT_JSON_H_
 
 #include "LIEF/config.h"
 
 #ifdef LIEF_JSON_SUPPORT
 
-#include "LIEF/json.hpp"
-
+#include "LIEF/visibility.h"
 #include "LIEF/visitors/json.hpp"
-#include "LIEF/ELF/json.hpp"
-#include "LIEF/Abstract/json.hpp"
-#include "LIEF/visitors/pe_json.hpp"
-
 #include "LIEF/Abstract.hpp"
-#include "LIEF/ELF.hpp"
-#include "LIEF/PE.hpp"
 
 namespace LIEF {
-//template<class T, class VISITOR = JsonVisitor>
-//json to_json(const T& obj) {
-//  VISITOR visitor;
-//  visitor(obj);
-//  return visitor.get();
-//}
-//
-//template<class T, class VISITOR = JsonVisitor>
-//std::string to_json_str(const T& obj) {
-//  return to_json<T, VISITOR>(obj).dump();
-//}
 
-} // namespace LIEF
+DLL_PUBLIC json to_json(const Visitable& v);
+DLL_PUBLIC std::string to_json_str(const Visitable& v);
+
+
+class DLL_PUBLIC AbstractJsonVisitor : public LIEF::JsonVisitor {
+  public:
+  using LIEF::JsonVisitor::JsonVisitor;
+
+  public:
+  virtual void visit(const Binary& binary)         override;
+  virtual void visit(const Header& header)         override;
+  virtual void visit(const Section& section)       override;
+  virtual void visit(const Symbol& symbol)         override;
+  virtual void visit(const Relocation& relocation) override;
+};
+
+}
 
 #endif // LIEF_JSON_SUPPORT
 

@@ -13,16 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef LIEF_MAIN_HEADER_H_
-#define LIEF_MAIN_HEADER_H_
-#include <LIEF/config.h>
 
-#include <LIEF/Abstract.hpp>
+#include "LIEF/Abstract/hash.hpp"
+#include "LIEF/Abstract.hpp"
 
-#include <LIEF/ELF.hpp>
-#include <LIEF/PE.hpp>
-#include <LIEF/MachO.hpp>
-#include <LIEF/logging.hpp>
+namespace LIEF {
 
 
-#endif
+size_t AbstractHash::hash(const Visitable& obj) {
+  return LIEF::Hash::hash<LIEF::AbstractHash>(obj);
+}
+
+
+void AbstractHash::visit(const Binary& binary) {
+}
+
+void AbstractHash::visit(const Header& header) {
+}
+
+void AbstractHash::visit(const Section& section) {
+}
+
+void AbstractHash::visit(const Symbol& symbol) {
+}
+
+void AbstractHash::visit(const Relocation& relocation) {
+}
+
+
+} // namespace LIEF
+
