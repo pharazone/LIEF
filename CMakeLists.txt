@@ -48,8 +48,8 @@ set_source_files_properties(${mbedtls_src_tls} PROPERTIES GENERATED TRUE)
 
 if (LIEF_LOGGING)
   set_source_files_properties(${ELG_SOURCE_DIR}/easylogging++.cc PROPERTIES GENERATED TRUE)
-  set_source_files_properties(${ELG_SOURCE_DIR}/easylogging++.cc PROPERTIES COMPILE_FLAGS -Wno-unused-variable)
-  set_source_files_properties(${ELG_SOURCE_DIR}/easylogging++.h  PROPERTIES COMPILE_FLAGS -Wno-unused-variable)
+  #set_source_files_properties(${ELG_SOURCE_DIR}/easylogging++.cc PROPERTIES COMPILE_FLAGS -Wno-unused-variable)
+  #set_source_files_properties(${ELG_SOURCE_DIR}/easylogging++.h  PROPERTIES COMPILE_FLAGS -Wno-unused-variable)
   set(ELG_CC_PATH "${ELG_SOURCE_DIR}/easylogging++.cc")
 endif()
 

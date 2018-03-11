@@ -23,7 +23,7 @@
 
 namespace LIEF {
 
-json to_json(const Visitable& v) {
+json to_json_from_abstract(const Visitable& v) {
   AbstractJsonVisitor visitor;
 
 #if defined(LIEF_ELF_SUPPORT)
@@ -81,7 +81,7 @@ json to_json(const Visitable& v) {
 }
 
 
-std::string to_json_str(const Visitable& v) {
+std::string to_json_str_from_abstract(const Visitable& v) {
   return to_json(v).dump();
 }
 

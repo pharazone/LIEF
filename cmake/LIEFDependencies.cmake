@@ -145,7 +145,7 @@ set(mbedtls_src_tls
     "${MBEDTLS_SOURCE_DIR}/library/ssl_tls.c"
 )
 
-set_source_files_properties("${MBEDTLS_SOURCE_DIR}/library/bignum.c" PROPERTIES COMPILE_FLAGS -Wno-overlength-strings)
+#set_source_files_properties("${MBEDTLS_SOURCE_DIR}/library/bignum.c" PROPERTIES COMPILE_FLAGS -Wno-overlength-strings)
 
 # easyloggingpp
 # -------------

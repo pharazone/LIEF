@@ -20,4 +20,5 @@
 
 void init_json_functions(py::module& m) {
   m.def("to_json", &LIEF::to_json_str);
+  m.def("to_json_from_abstract", &LIEF::to_json_str_from_abstract);
 }
