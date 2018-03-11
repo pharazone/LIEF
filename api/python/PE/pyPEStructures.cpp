@@ -51,7 +51,7 @@ void init_PE_Structures_enum(py::module& m) {
     .value(PY_ENUM(LIEF::PE::MACHINE_TYPES::IMAGE_FILE_MACHINE_WCEMIPSV2))
     .export_values();
 
-  py::enum_<LIEF::PE::HEADER_CHARACTERISTICS>(m, "HEADER_CHARACTERISTICS")
+  py::enum_<LIEF::PE::HEADER_CHARACTERISTICS>(m, "HEADER_CHARACTERISTICS", py::arithmetic())
     .value(PY_ENUM(LIEF::PE::HEADER_CHARACTERISTICS::IMAGE_FILE_RELOCS_STRIPPED))
     .value(PY_ENUM(LIEF::PE::HEADER_CHARACTERISTICS::IMAGE_FILE_EXECUTABLE_IMAGE))
     .value(PY_ENUM(LIEF::PE::HEADER_CHARACTERISTICS::IMAGE_FILE_LINE_NUMS_STRIPPED))
@@ -772,7 +772,8 @@ void init_PE_Structures_enum(py::module& m) {
     .value(PY_ENUM(LIEF::PE::WIN_VERSION::WIN10_0_16237))
     .export_values();
 
-  py::enum_<LIEF::PE::GUARD_CF_FLAGS>(m, "GUARD_CF_FLAGS")
+  py::enum_<LIEF::PE::GUARD_CF_FLAGS>(m, "GUARD_CF_FLAGS", py::arithmetic())
+    .value(PY_ENUM(LIEF::PE::GUARD_CF_FLAGS::GCF_NONE))
     .value(PY_ENUM(LIEF::PE::GUARD_CF_FLAGS::GCF_INSTRUMENTED))
     .value(PY_ENUM(LIEF::PE::GUARD_CF_FLAGS::GCF_W_INSTRUMENTED))
     .value(PY_ENUM(LIEF::PE::GUARD_CF_FLAGS::GCF_FUNCTION_TABLE_PRESENT))
@@ -781,7 +782,7 @@ void init_PE_Structures_enum(py::module& m) {
     .value(PY_ENUM(LIEF::PE::GUARD_CF_FLAGS::GCF_LONGJUMP_TABLE_PRESENT))
     .export_values();
 
-  py::enum_<LIEF::PE::GUARD_RF_FLAGS>(m, "GUARD_RF_FLAGS")
+  py::enum_<LIEF::PE::GUARD_RF_FLAGS>(m, "GUARD_RF_FLAGS", py::arithmetic())
     .value(PY_ENUM(LIEF::PE::GUARD_RF_FLAGS::GRF_INSTRUMENTED))
     .value(PY_ENUM(LIEF::PE::GUARD_RF_FLAGS::GRF_ENABLE))
     .value(PY_ENUM(LIEF::PE::GUARD_RF_FLAGS::GRF_STRICT))

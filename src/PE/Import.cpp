@@ -16,7 +16,7 @@
 #include <algorithm>
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/exception.hpp"
 
 #include "LIEF/PE/Import.hpp"
@@ -230,27 +230,7 @@ uint32_t Import::timedatestamp(void) const {
 }
 
 void Import::accept(LIEF::Visitor& visitor) const {
-  visitor.visit(this->forwarder_chain());
-  visitor.visit(this->timedatestamp());
-  visitor.visit(this->import_address_table_rva());
-  visitor.visit(this->import_lookup_table_rva());
-  visitor.visit(this->name());
-
-  try {
-    visitor(this->directory());
-  } catch (const not_found&) {
-  }
-
-
-  try {
-    visitor(this->iat_directory());
-  } catch (const not_found&) {
-  }
-
-
-  for (const ImportEntry& entry : this->entries()) {
-    visitor(entry);
-  }
+  visitor.visit(*this);
 }
 
 bool Import::operator==(const Import& rhs) const {

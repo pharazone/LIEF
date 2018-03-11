@@ -23,7 +23,6 @@
 
 namespace LIEF {
 
-
 json to_json(const Visitable& v) {
   AbstractJsonVisitor visitor;
 

@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/Import.hpp"
 
 #include <string>
@@ -106,7 +106,7 @@ void init_PE_Import_class(py::module& m) {
     .def("__ne__", &Import::operator!=)
     .def("__hash__",
         [] (const Import& import) {
-          return LIEF::Hash::hash(import);
+          return Hash::hash(import);
         })
 
 

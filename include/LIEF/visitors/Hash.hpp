@@ -53,6 +53,11 @@ class DLL_PUBLIC Hash : public Visitor {
     return this->process(static_cast<size_t>(v));
   }
 
+  template<class It>
+  Hash& process(typename It::iterator v) {
+    return this->process(std::begin(v), std::end(v));
+  }
+
 
   template<class T, size_t N>
   Hash& process(const std::array<T, N>& array) {

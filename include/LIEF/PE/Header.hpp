@@ -45,7 +45,7 @@ class DLL_PUBLIC Header : public Visitable {
     uint32_t           pointerto_symbol_table(void) const;
     uint32_t           numberof_symbols(void) const;
     uint16_t           sizeof_optional_header(void) const;
-    uint16_t           characteristics(void) const;
+    HEADER_CHARACTERISTICS           characteristics(void) const;
 
     bool has_characteristic(HEADER_CHARACTERISTICS c) const;
     std::set<HEADER_CHARACTERISTICS> characteristics_list(void) const;
@@ -56,7 +56,7 @@ class DLL_PUBLIC Header : public Visitable {
     void pointerto_symbol_table(uint32_t pointerToSymbol);
     void numberof_symbols(uint32_t nbOfSymbols);
     void sizeof_optional_header(uint16_t sizeOfOptionalHdr);
-    void characteristics(uint16_t characteristics);
+    void characteristics(HEADER_CHARACTERISTICS characteristics);
     void signature(const signature_t& sig);
 
     void add_characteristic(HEADER_CHARACTERISTICS c);
@@ -76,7 +76,7 @@ class DLL_PUBLIC Header : public Visitable {
     uint32_t      pointerToSymbolTable_;
     uint32_t      numberOfSymbols_;
     uint16_t      sizeOfOptionalHeader_;
-    uint16_t      characteristics_;
+    HEADER_CHARACTERISTICS characteristics_;
 
 };
 }

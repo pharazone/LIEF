@@ -34,13 +34,6 @@ DLL_PUBLIC std::string to_json_str(const Visitable& v);
 class DLL_PUBLIC JsonVisitor : public LIEF::JsonVisitor {
   public:
   using LIEF::JsonVisitor::JsonVisitor;
-  //using LIEF::JsonVisitor::operator=;
-  //using LIEF::JsonVisitor::visit;
-  //using LIEF::JsonVisitor::get;
-  //virtual void visit(const Visitable& obj) override;
-  //void doit(const Visitable& obj) const {
-  //  std::cout << "doit" << std::endl;
-  //}
 
   public:
   virtual void visit(const Binary& binary)                  override;

@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/resources/LangCodeItem.hpp"
 
 #include <string>
@@ -77,7 +77,7 @@ void init_PE_LangCodeItem_class(py::module& m) {
     .def("__ne__", &LangCodeItem::operator!=)
     .def("__hash__",
         [] (const LangCodeItem& item) {
-          return LIEF::Hash::hash(item);
+          return Hash::hash(item);
         })
 
     .def("__str__",

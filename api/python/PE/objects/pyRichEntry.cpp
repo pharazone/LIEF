@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/RichEntry.hpp"
 
 #include <string>
@@ -56,7 +56,7 @@ void init_PE_RichEntry_class(py::module& m) {
     .def("__ne__", &RichEntry::operator!=)
     .def("__hash__",
         [] (const RichEntry& entry) {
-          return LIEF::Hash::hash(entry);
+          return Hash::hash(entry);
         })
 
     .def("__str__", [] (const RichEntry& entry)

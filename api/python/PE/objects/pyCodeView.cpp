@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/CodeView.hpp"
 
 #include <string>
@@ -37,7 +37,7 @@ void init_PE_CodeView_class(py::module& m) {
     .def("__ne__", &CodeView::operator!=)
     .def("__hash__",
         [] (const CodeView& codeview) {
-          return LIEF::Hash::hash(codeview);
+          return Hash::hash(codeview);
         })
 
     .def("__str__", [] (const CodeView& cv)

@@ -16,7 +16,7 @@
 #include <string>
 #include <sstream>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/DataDirectory.hpp"
 
 #include "pyPE.hpp"
@@ -58,7 +58,7 @@ void init_PE_DataDirectory_class(py::module& m) {
     .def("__ne__", &DataDirectory::operator!=)
     .def("__hash__",
         [] (const DataDirectory& data_directory) {
-          return LIEF::Hash::hash(data_directory);
+          return Hash::hash(data_directory);
         })
 
     .def("__str__", [] (const DataDirectory& datadir)

@@ -16,7 +16,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/exception.hpp"
 
 #include "LIEF/PE/DataDirectory.hpp"
@@ -113,12 +113,7 @@ void DataDirectory::size(uint32_t size) {
 }
 
 void DataDirectory::accept(LIEF::Visitor& visitor) const {
-  visitor.visit(this->RVA());
-  visitor.visit(this->size());
-  visitor.visit(this->type());
-  if (this->has_section()) {
-    visitor(this->section());
-  }
+  visitor.visit(*this);
 }
 
 

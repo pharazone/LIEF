@@ -173,6 +173,25 @@ set(LIEF_PE_UTILS_INCLUDE_FILES
 )
 
 
+# JSON Part
+# =========
+set(LIEF_PE_JSON_SRC "${CMAKE_CURRENT_LIST_DIR}/json.cpp")
+set(LIEF_PE_JSON_HDR "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/PE/json.hpp")
+
+# Hash Part
+# =========
+set(LIEF_PE_HASH_SRC "${CMAKE_CURRENT_LIST_DIR}/hash.cpp")
+set(LIEF_PE_HASH_HDR "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/PE/hash.hpp")
+
+if (LIEF_ENABLE_JSON)
+  list(APPEND LIEF_PE_SRC ${LIEF_PE_JSON_SRC})
+  list(APPEND LIEF_PE_INCLUDE_FILES ${LIEF_PE_JSON_HDR})
+endif()
+
+list(APPEND LIEF_PE_SRC ${LIEF_PE_HASH_SRC})
+list(APPEND LIEF_PE_INCLUDE_FILES ${LIEF_PE_HASH_HDR})
+
+
 source_group("Source Files\\PE"                                FILES ${LIEF_PE_SRC})
 source_group("Source Files\\PE\\Load Configure"                FILES ${LIEF_PE_LOAD_CONFIGURATION_SRC})
 source_group("Header Files\\PE"                                FILES ${LIEF_PE_INCLUDE_FILES})

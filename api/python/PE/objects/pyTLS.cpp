@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/TLS.hpp"
 
 #include <string>
@@ -114,7 +114,7 @@ void init_PE_TLS_class(py::module& m) {
     .def("__ne__", &TLS::operator!=)
     .def("__hash__",
         [] (const TLS& tls) {
-          return LIEF::Hash::hash(tls);
+          return Hash::hash(tls);
         })
 
     .def("__str__", [] (const TLS& tls)

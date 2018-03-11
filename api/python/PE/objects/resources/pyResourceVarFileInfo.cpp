@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/resources/ResourceVarFileInfo.hpp"
 
 #include <string>
@@ -57,7 +57,7 @@ void init_PE_ResourceVarFileInfo_class(py::module& m) {
     .def("__ne__", &ResourceVarFileInfo::operator!=)
     .def("__hash__",
         [] (const ResourceVarFileInfo& var_file_info) {
-          return LIEF::Hash::hash(var_file_info);
+          return Hash::hash(var_file_info);
         })
 
     .def("__str__",

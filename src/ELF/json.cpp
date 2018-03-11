@@ -33,7 +33,7 @@ json to_json(const Visitable& v) {
 
 
 std::string to_json_str(const Visitable& v) {
-  return to_json(v).dump();
+  return ELF::to_json(v).dump();
 }
 
 

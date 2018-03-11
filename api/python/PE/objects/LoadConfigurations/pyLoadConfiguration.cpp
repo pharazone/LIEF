@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/LoadConfigurations.hpp"
 
 #include <string>
@@ -136,7 +136,7 @@ void init_PE_LoadConfiguration_class(py::module& m) {
     .def("__ne__", &LoadConfiguration::operator!=)
     .def("__hash__",
         [] (const LoadConfiguration& config) {
-          return LIEF::Hash::hash(config);
+          return Hash::hash(config);
         })
 
 

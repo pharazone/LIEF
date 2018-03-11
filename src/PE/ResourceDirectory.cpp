@@ -15,7 +15,7 @@
  */
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 
 #include "LIEF/PE/ResourceDirectory.hpp"
 
@@ -129,15 +129,7 @@ void ResourceDirectory::numberof_id_entries(uint16_t numberof_id_entries) {
 }
 
 void ResourceDirectory::accept(Visitor& visitor) const {
-  ResourceNode::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-
-  visitor.visit(this->characteristics());
-  visitor.visit(this->time_date_stamp());
-  visitor.visit(this->major_version());
-  visitor.visit(this->minor_version());
-  visitor.visit(this->numberof_name_entries());
-  visitor.visit(this->numberof_id_entries());
+  visitor.visit(*this);
 }
 
 bool ResourceDirectory::operator==(const ResourceDirectory& rhs) const {

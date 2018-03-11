@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/DosHeader.hpp"
 
 #include <string>
@@ -106,7 +106,7 @@ void init_PE_DosHeader_class(py::module& m) {
     .def("__ne__", &DosHeader::operator!=)
     .def("__hash__",
         [] (const DosHeader& dos_header) {
-          return LIEF::Hash::hash(dos_header);
+          return Hash::hash(dos_header);
         })
 
     .def("__str__", [] (const DosHeader& header)

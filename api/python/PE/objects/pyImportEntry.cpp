@@ -17,7 +17,7 @@
 #include <string>
 #include <sstream>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/ImportEntry.hpp"
 
 #include "pyPE.hpp"
@@ -78,7 +78,7 @@ void init_PE_ImportEntry_class(py::module& m) {
     .def("__ne__", &ImportEntry::operator!=)
     .def("__hash__",
         [] (const ImportEntry& import_entry) {
-          return LIEF::Hash::hash(import_entry);
+          return Hash::hash(import_entry);
         })
 
     .def("__str__", [] (const ImportEntry& importEntry)

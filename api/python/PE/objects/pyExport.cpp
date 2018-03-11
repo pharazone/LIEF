@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/Export.hpp"
 
 #include <string>
@@ -69,7 +69,7 @@ void init_PE_Export_class(py::module& m) {
     .def("__ne__", &Export::operator!=)
     .def("__hash__",
         [] (const Export& export_) {
-          return LIEF::Hash::hash(export_);
+          return Hash::hash(export_);
         })
 
     .def("__str__", [] (const Export& export_)

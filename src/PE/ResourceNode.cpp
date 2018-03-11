@@ -16,7 +16,7 @@
 #include <sstream>
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 
 #include "LIEF/PE/utils.hpp"
 
@@ -211,17 +211,7 @@ void ResourceNode::sort_by_id(void) {
 }
 
 void ResourceNode::accept(Visitor& visitor) const {
-  visitor(*this); // Double dispatch to avoid down-casting
-
-  visitor.visit(this->id());
-  if (this->has_name()) {
-    visitor.visit(this->name());
-  }
-
-  for (const ResourceNode& child : this->childs()) {
-    visitor(child);
-  }
-
+  visitor.visit(*this);
 }
 
 bool ResourceNode::operator==(const ResourceNode& rhs) const {

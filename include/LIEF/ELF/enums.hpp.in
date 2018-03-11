@@ -1,72 +1,21 @@
 #ifndef LIEF_ELF_ENUMS_H_
 #define LIEF_ELF_ENUMS_H_
-
-#include <type_traits>
-
-#define _LIEF_EN(N) class N : size_t
-#define _LIEF_EI(X) X
-
-#define ENABLE_BITMASK_OPERATORS(X)  \
-template<>                           \
-struct EnableBitMaskOperators<X>     \
-{                                    \
-  static const bool enable = true;   \
-};
-
-template<typename Enum>
-struct EnableBitMaskOperators
-{
-  static const bool enable = false;
-};
-
-template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
-operator |(Enum lhs, Enum rhs)
-{
-    using underlying = typename std::underlying_type<Enum>::type;
-    return static_cast<Enum> (
-        static_cast<underlying>(lhs) |
-        static_cast<underlying>(rhs)
-    );
-}
-
-template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
-operator &(Enum lhs, Enum rhs)
-{
-    using underlying = typename std::underlying_type<Enum>::type;
-    return static_cast<Enum> (
-        static_cast<underlying>(lhs) &
-        static_cast<underlying>(rhs)
-    );
-}
-
-template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
-operator ~(Enum e)
-{
-    using underlying = typename std::underlying_type<Enum>::type;
-    return static_cast<Enum>(~static_cast<underlying>(e));
-}
+#include "LIEF/enums.hpp"
 
 namespace LIEF {
 namespace ELF {
 
 @LIEF_ELF_ENUMS@
 
-
 }
 }
 
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::ELF_SEGMENT_FLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::ARM_EFLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::MIPS_EFLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::HEXAGON_EFLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::ELF_SECTION_FLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::DYNAMIC_FLAGS);
-ENABLE_BITMASK_OPERATORS(LIEF::ELF::DYNAMIC_FLAGS_1);
-
-#undef _LIEF_EN
-#undef _LIEF_EI
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::ELF_SEGMENT_FLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::ARM_EFLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::MIPS_EFLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::HEXAGON_EFLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::ELF_SECTION_FLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::DYNAMIC_FLAGS)
+ENABLE_BITMASK_OPERATORS(LIEF::ELF::DYNAMIC_FLAGS_1)
 
 #endif

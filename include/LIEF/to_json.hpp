@@ -24,8 +24,8 @@
 
 #include "LIEF/visitors/json.hpp"
 #include "LIEF/ELF/json.hpp"
+#include "LIEF/PE/json.hpp"
 #include "LIEF/Abstract/json.hpp"
-#include "LIEF/visitors/pe_json.hpp"
 
 #include "LIEF/Abstract.hpp"
 #include "LIEF/ELF.hpp"

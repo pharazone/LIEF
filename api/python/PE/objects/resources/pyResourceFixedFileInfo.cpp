@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/resources/ResourceFixedFileInfo.hpp"
 
 #include <string>
@@ -114,7 +114,7 @@ void init_PE_ResourceFixedFileInfo_class(py::module& m) {
     .def("__ne__", &ResourceFixedFileInfo::operator!=)
     .def("__hash__",
         [] (const ResourceFixedFileInfo& fixed_file_info) {
-          return LIEF::Hash::hash(fixed_file_info);
+          return Hash::hash(fixed_file_info);
         })
 
     .def("__str__",

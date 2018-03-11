@@ -15,7 +15,7 @@
  */
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 
 #include "LIEF/PE/ResourceData.hpp"
 
@@ -93,11 +93,7 @@ void ResourceData::reserved(uint32_t value) {
 }
 
 void ResourceData::accept(Visitor& visitor) const {
-  ResourceNode::accept(visitor);
-  visitor(*this); // Double dispatch to avoid down-casting
-
-  visitor.visit(this->code_page());
-  visitor.visit(this->content());
+  visitor.visit(*this);
 }
 
 bool ResourceData::operator==(const ResourceData& rhs) const {

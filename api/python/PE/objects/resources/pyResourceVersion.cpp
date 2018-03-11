@@ -15,7 +15,7 @@
  */
 #include "pyPE.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/PE/resources/ResourceVersion.hpp"
 
 #include <string>
@@ -92,7 +92,7 @@ void init_PE_ResourceVersion_class(py::module& m) {
     .def("__ne__", &ResourceVersion::operator!=)
     .def("__hash__",
         [] (const ResourceVersion& version) {
-          return LIEF::Hash::hash(version);
+          return Hash::hash(version);
         })
 
     .def("__str__",

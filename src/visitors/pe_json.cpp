@@ -252,7 +252,7 @@ void JsonVisitor::visit(const Header& header) {
   this->node_["pointerto_symbol_table"] = header.pointerto_symbol_table();
   this->node_["numberof_symbols"]       = header.numberof_symbols();
   this->node_["sizeof_optional_header"] = header.sizeof_optional_header();
-  this->node_["characteristics"]        = header.characteristics();
+  this->node_["characteristics"]        = static_cast<size_t>(header.characteristics());
 }
 
 void JsonVisitor::visit(const OptionalHeader& optional_header) {
@@ -427,7 +427,7 @@ void JsonVisitor::visit(const Debug& debug) {
 }
 
 void JsonVisitor::visit(const CodeView& cv) {
-  this->node_["cv_signature"] = cv.cv_signature();
+  this->node_["cv_signature"] = to_string(cv.cv_signature());
 }
 
 void JsonVisitor::visit(const CodeViewPDB& cvpdb) {
@@ -615,8 +615,8 @@ void JsonVisitor::visit(const ResourceVersion& resource_version) {
 
 void JsonVisitor::visit(const ResourceIcon& resource_icon) {
   this->node_["id"]          = resource_icon.id();
-  this->node_["lang"]        = resource_icon.lang();
-  this->node_["sublang"]     = resource_icon.sublang();
+  this->node_["lang"]        = to_string(resource_icon.lang());
+  this->node_["sublang"]     = to_string(resource_icon.sublang());
   this->node_["width"]       = resource_icon.width();
   this->node_["height"]      = resource_icon.height();
   this->node_["color_count"] = resource_icon.color_count();
@@ -779,7 +779,7 @@ void JsonVisitor::visit(const LoadConfigurationV1& config) {
   this->node_["guard_cf_dispatch_function_pointer"] = config.guard_cf_dispatch_function_pointer();
   this->node_["guard_cf_function_table"]            = config.guard_cf_function_table();
   this->node_["guard_cf_function_count"]            = config.guard_cf_function_count();
-  this->node_["guard_flags"]                        = config.guard_flags();
+  this->node_["guard_flags"]                        = static_cast<size_t>(config.guard_flags());
   this->visit(static_cast<const LoadConfigurationV0&>(config));
 }
 
