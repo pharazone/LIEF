@@ -23,7 +23,7 @@
 namespace LIEF {
 namespace ELF {
 
-class DLL_PUBLIC Hash : public LIEF::Hash {
+class LIEF_API Hash : public LIEF::Hash {
   public:
   static size_t hash(const Visitable& obj);
 

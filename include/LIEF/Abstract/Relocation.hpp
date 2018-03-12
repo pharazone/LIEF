@@ -21,7 +21,7 @@
 #include "LIEF/visibility.h"
 
 namespace LIEF {
-class DLL_PUBLIC Relocation : public Visitable {
+class LIEF_API Relocation : public Visitable {
 
   public:
     //! @brief Default CTOR
@@ -64,7 +64,7 @@ class DLL_PUBLIC Relocation : public Visitable {
     //! @brief Comparaison based on the Relocation's **address**
     bool operator>=(const Relocation& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Relocation& entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const Relocation& entry);
 
   protected:
     uint64_t address_;

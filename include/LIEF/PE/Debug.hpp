@@ -31,7 +31,7 @@ namespace PE {
 class Parser;
 class Builder;
 
-class DLL_PUBLIC Debug : public Visitable {
+class LIEF_API Debug : public Visitable {
 
   friend class Parser;
   friend class Builder;
@@ -92,7 +92,7 @@ class DLL_PUBLIC Debug : public Visitable {
     bool operator!=(const Debug& rhs) const;
 
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Debug& entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const Debug& entry);
 
   private:
     uint32_t    characteristics_;

@@ -30,7 +30,7 @@ using setter_t = void (DynamicEntry::*)(T);
 void init_ELF_DynamicEntry_class(py::module& m) {
 
   // DynamicEntry object
-  py::class_<DynamicEntry>(m, "DynamicEntry")
+  py::class_<DynamicEntry, LIEF::Visitable>(m, "DynamicEntry")
     .def(py::init<>(),
         "Default constructor")
 

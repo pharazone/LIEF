@@ -29,7 +29,7 @@ using setter_t = void (Note::*)(T);
 
 void init_ELF_Note_class(py::module& m) {
 
-  py::class_<Note>(m, "Note")
+  py::class_<Note, LIEF::Visitable>(m, "Note")
     .def(py::init<>(),
         "Default ctor")
 

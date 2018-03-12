@@ -28,7 +28,7 @@ namespace LIEF {
 namespace PE {
 class ResourcesManager;
 
-class DLL_PUBLIC ResourceIcon : public Visitable {
+class LIEF_API ResourceIcon : public Visitable {
 
   friend class ResourcesManager;
 
@@ -98,7 +98,7 @@ class DLL_PUBLIC ResourceIcon : public Visitable {
   bool operator==(const ResourceIcon& rhs) const;
   bool operator!=(const ResourceIcon& rhs) const;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const ResourceIcon& entry);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const ResourceIcon& entry);
 
   private:
   uint8_t              width_;

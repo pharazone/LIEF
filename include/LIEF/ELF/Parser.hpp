@@ -43,7 +43,7 @@ namespace LIEF {
 namespace ELF {
 
 //! @brief Class which parse an ELF file and transform into a ELF::Binary
-class DLL_PUBLIC Parser : public LIEF::Parser {
+class LIEF_API Parser : public LIEF::Parser {
   public:
 
     static constexpr uint32_t NB_MAX_SYMBOLS         = 1000000;

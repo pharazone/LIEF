@@ -27,7 +27,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class DLL_PUBLIC AuthenticatedAttributes : public Visitable {
+class LIEF_API AuthenticatedAttributes : public Visitable {
 
   friend class Parser;
   friend class SignatureParser;
@@ -53,7 +53,7 @@ class DLL_PUBLIC AuthenticatedAttributes : public Visitable {
 
   virtual ~AuthenticatedAttributes(void);
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const AuthenticatedAttributes& authenticated_attributes);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const AuthenticatedAttributes& authenticated_attributes);
 
   private:
   oid_t content_type_; // should holds 1.2.840.113549.1.9.4

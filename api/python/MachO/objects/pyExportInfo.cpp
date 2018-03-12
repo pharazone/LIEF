@@ -32,7 +32,7 @@ using setter_t = void (ExportInfo::*)(T);
 
 void init_MachO_ExportInfo_class(py::module& m) {
 
-  py::class_<ExportInfo>(m, "ExportInfo")
+  py::class_<ExportInfo, LIEF::Visitable>(m, "ExportInfo")
 
     .def_property_readonly("node_offset",
         static_cast<getter_t<uint64_t>>(&ExportInfo::node_offset))

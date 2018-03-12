@@ -32,7 +32,7 @@ using no_const_getter = T (SymbolVersionDefinition::*)(void);
 
 void init_ELF_SymbolVersionDefinition_class(py::module& m) {
 
-  py::class_<SymbolVersionDefinition>(m, "SymbolVersionDefinition",
+  py::class_<SymbolVersionDefinition, LIEF::Visitable>(m, "SymbolVersionDefinition",
       "Class which modelization of an entry defined in ``DT_VERDEF`` (or ``.gnu.version_d``)")
 
     .def_property("version",

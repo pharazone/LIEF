@@ -28,7 +28,7 @@
 
 namespace LIEF {
 namespace PE {
-class DLL_PUBLIC Header : public Visitable {
+class LIEF_API Header : public Visitable {
   public:
     using signature_t = std::array<uint8_t, sizeof(PE_Magic)>;
     Header(void);
@@ -67,7 +67,7 @@ class DLL_PUBLIC Header : public Visitable {
     bool operator==(const Header& rhs) const;
     bool operator!=(const Header& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Header& entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const Header& entry);
   private:
     signature_t   signature_;
     MACHINE_TYPES machine_;

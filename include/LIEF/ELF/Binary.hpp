@@ -54,7 +54,7 @@ class Parser;
 class Builder;
 
 //! @brief Class which represent an ELF binary
-class DLL_PUBLIC Binary : public LIEF::Binary {
+class LIEF_API Binary : public LIEF::Binary {
   friend class Parser;
   friend class Builder;
 

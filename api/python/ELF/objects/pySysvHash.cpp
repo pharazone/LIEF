@@ -30,7 +30,7 @@ using setter_t = void (SysvHash::*)(T);
 
 void init_ELF_SysvHash_class(py::module& m) {
 
-  py::class_<SysvHash>(m, "SysvHash")
+  py::class_<SysvHash, LIEF::Visitable>(m, "SysvHash")
     .def(py::init<>())
 
     .def_property_readonly("nbucket",

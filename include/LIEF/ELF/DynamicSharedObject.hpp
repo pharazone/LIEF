@@ -24,7 +24,7 @@
 
 namespace LIEF {
 namespace ELF {
-class DLL_PUBLIC DynamicSharedObject : public DynamicEntry {
+class LIEF_API DynamicSharedObject : public DynamicEntry {
 
   public:
     using DynamicEntry::DynamicEntry;

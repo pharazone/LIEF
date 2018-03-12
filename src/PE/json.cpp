@@ -148,63 +148,7 @@ void JsonVisitor::visit(const Binary& binary) {
   if (binary.has_configuration()) {
     JsonVisitor visitor;
     const LoadConfiguration& config = binary.load_configuration();
-    WIN_VERSION version = config.version();
-    switch(version) {
-      case WIN_VERSION::WIN_SEH:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV0*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN8_1:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV1*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_9879:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV2*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_14286:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV3*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_14383:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV4*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_14901:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV5*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_15002:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV6*>(&config));
-          break;
-        }
-
-      case WIN_VERSION::WIN10_0_16237:
-        {
-          visitor(*dynamic_cast<const LoadConfigurationV7*>(&config));
-          break;
-        }
-
-
-      case WIN_VERSION::WIN_UNKNOWN:
-      default:
-        {
-          visitor(config);
-        }
-    }
+    config.accept(visitor);
     this->node_["load_configuration"] = visitor.get();
   }
 
@@ -417,19 +361,7 @@ void JsonVisitor::visit(const Debug& debug) {
   if (debug.has_code_view()) {
     JsonVisitor codeview_visitor;
     const CodeView& codeview = debug.code_view();
-    CODE_VIEW_SIGNATURES signature = codeview.cv_signature();
-    switch (signature) {
-      case CODE_VIEW_SIGNATURES::CVS_PDB_70:
-        {
-          codeview_visitor(dynamic_cast<const CodeViewPDB&>(codeview));
-          break;
-        }
-
-      default:
-        {
-          codeview_visitor(codeview);
-        }
-    }
+    codeview.accept(codeview_visitor);
     this->node_["code_view"] = codeview_visitor.get();
   }
 }

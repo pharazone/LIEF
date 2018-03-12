@@ -29,7 +29,7 @@ using setter_t = void (SymbolVersion::*)(T);
 
 void init_ELF_SymbolVersion_class(py::module& m) {
 
-  py::class_<SymbolVersion>(m, "SymbolVersion")
+  py::class_<SymbolVersion, LIEF::Visitable>(m, "SymbolVersion")
     .def(py::init<>(),"Default constructor")
     .def(py::init<uint16_t>(), "Constructor from :attr:`~lief.SymbolVersion.value`")
 

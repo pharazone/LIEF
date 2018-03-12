@@ -28,7 +28,7 @@
 
 namespace LIEF {
 namespace PE {
-class DLL_PUBLIC CodeView : public Visitable {
+class LIEF_API CodeView : public Visitable {
   public:
 
   CodeView(void);
@@ -47,7 +47,7 @@ class DLL_PUBLIC CodeView : public Visitable {
   bool operator==(const CodeView& rhs) const;
   bool operator!=(const CodeView& rhs) const;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const CodeView& entry);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const CodeView& entry);
 
   virtual ~CodeView(void);
 

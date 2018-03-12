@@ -27,7 +27,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class DLL_PUBLIC ContentInfo : public Visitable {
+class LIEF_API ContentInfo : public Visitable {
 
   friend class Parser;
   friend class SignatureParser;
@@ -54,7 +54,7 @@ class DLL_PUBLIC ContentInfo : public Visitable {
 
   virtual ~ContentInfo(void);
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const ContentInfo& content_info);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const ContentInfo& content_info);
 
   private:
   oid_t content_type_; // SPC_INDIRECT_DATA_OBJID

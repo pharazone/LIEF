@@ -26,11 +26,11 @@
 
 namespace LIEF {
 
-DLL_PUBLIC json to_json_from_abstract(const Visitable& v);
-DLL_PUBLIC std::string to_json_str_from_abstract(const Visitable& v);
+LIEF_API json to_json_from_abstract(const Visitable& v);
+LIEF_API std::string to_json_str_from_abstract(const Visitable& v);
 
 
-class DLL_PUBLIC AbstractJsonVisitor : public LIEF::JsonVisitor {
+class LIEF_API AbstractJsonVisitor : public LIEF::JsonVisitor {
   public:
   using LIEF::JsonVisitor::JsonVisitor;
 

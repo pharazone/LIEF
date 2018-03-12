@@ -18,10 +18,12 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include "LIEF/visibility.h"
+
 namespace LIEF {
 
 template <class Type>
-class enum_ : public pybind11::enum_<Type> {
+class LIEF_LOCAL enum_ : public pybind11::enum_<Type> {
   public:
   using py::enum_<Type>::def;
   using py::enum_<Type>::def_property_readonly_static;
@@ -31,8 +33,9 @@ class enum_ : public pybind11::enum_<Type> {
   enum_(const py::handle &scope, const char *name, const Extra&... extra) :
     py::enum_<Type>{scope, name, extra...}
   {
-
     constexpr bool is_arithmetic = py::detail::any_of<std::is_same<py::arithmetic, Extra>...>::value;
+    def("__eq__", [](const Type &value, Scalar value2) { return (Scalar) value == value2; });
+    def("__ne__", [](const Type &value, Scalar value2) { return (Scalar) value != value2; });
     if (is_arithmetic) {
       def("__lt__", [](const Type &value, Scalar value2) { return (Scalar) value < value2; });
       def("__gt__", [](const Type &value, Scalar value2) { return (Scalar) value > value2; });

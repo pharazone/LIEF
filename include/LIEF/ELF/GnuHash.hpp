@@ -29,7 +29,7 @@ class Parser;
 class Builder;
 class Binary;
 
-class DLL_PUBLIC GnuHash : public Visitable {
+class LIEF_API GnuHash : public Visitable {
 
   friend class Parser;
   friend class Builder;
@@ -95,7 +95,7 @@ class DLL_PUBLIC GnuHash : public Visitable {
 
   virtual void accept(Visitor& visitor) const override;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const GnuHash& gnuhash);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const GnuHash& gnuhash);
 
   private:
   uint32_t symbol_index_;

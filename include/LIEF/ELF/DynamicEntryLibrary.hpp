@@ -24,7 +24,7 @@
 
 namespace LIEF {
 namespace ELF {
-class DLL_PUBLIC DynamicEntryLibrary : public DynamicEntry {
+class LIEF_API DynamicEntryLibrary : public DynamicEntry {
 
   public:
     using DynamicEntry::DynamicEntry;

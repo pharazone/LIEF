@@ -29,7 +29,7 @@ class Parser;
 class Builder;
 class Binary;
 
-class DLL_PUBLIC Note : public Visitable {
+class LIEF_API Note : public Visitable {
 
   friend class Parser;
   friend class Builder;
@@ -87,7 +87,7 @@ class DLL_PUBLIC Note : public Visitable {
 
   virtual void accept(Visitor& visitor) const override;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Note& note);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const Note& note);
 
   protected:
   std::string   name_;

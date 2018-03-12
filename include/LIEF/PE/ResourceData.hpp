@@ -29,7 +29,7 @@ namespace PE {
 class Parser;
 class Builder;
 
-class DLL_PUBLIC ResourceData : public ResourceNode {
+class LIEF_API ResourceData : public ResourceNode {
 
   friend class Parser;
   friend class Builder;
@@ -72,7 +72,7 @@ class DLL_PUBLIC ResourceData : public ResourceNode {
   bool operator==(const ResourceData& rhs) const;
   bool operator!=(const ResourceData& rhs) const;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const ResourceData& data);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const ResourceData& data);
 
   private:
   std::vector<uint8_t> content_;

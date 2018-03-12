@@ -2006,8 +2006,8 @@ INCLUDE_FILE_PATTERNS  =
 # Disable protected memebers
 PREDEFINED = "protected=private" \
              "__attribute__(x)=" \
-             "DLL_PUBLIC="       \
-             "DLL_LOCAL="        \
+             "LIEF_API="       \
+             "LIEF_LOCAL="        \
 
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this

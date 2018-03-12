@@ -35,7 +35,7 @@ class Parser;
 class Binary;
 class Builder;
 
-class DLL_PUBLIC Relocation : public LIEF::Relocation {
+class LIEF_API Relocation : public LIEF::Relocation {
 
   friend class Parser;
   friend class Binary;
@@ -85,7 +85,7 @@ class DLL_PUBLIC Relocation : public LIEF::Relocation {
     bool operator==(const Relocation& rhs) const;
     bool operator!=(const Relocation& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Relocation& entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const Relocation& entry);
 
   private:
     uint32_t            type_;

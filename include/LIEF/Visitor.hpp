@@ -181,7 +181,7 @@ LIEF_MACHO_FORWARD(BindingInfo)
 LIEF_MACHO_FORWARD(ExportInfo)
 
 
-class DLL_PUBLIC Visitor {
+class LIEF_API Visitor {
   public:
   Visitor(void);
   virtual ~Visitor(void);

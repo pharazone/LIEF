@@ -30,7 +30,7 @@ namespace PE {
 
 class SignatureParser;
 
-class DLL_PUBLIC Signature : public Visitable {
+class LIEF_API Signature : public Visitable {
 
   friend class SignatureParser;
   friend class Parser;
@@ -63,7 +63,7 @@ class DLL_PUBLIC Signature : public Visitable {
 
   virtual ~Signature(void);
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Signature& signature);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const Signature& signature);
 
   private:
 

@@ -35,7 +35,7 @@ class Parser;
 class Binary;
 
 //! @brief Class which represent segments
-class DLL_PUBLIC Segment : public Visitable {
+class LIEF_API Segment : public Visitable {
 
   friend class Parser;
   friend class Section;
@@ -93,7 +93,7 @@ class DLL_PUBLIC Segment : public Visitable {
     bool operator==(const Segment& rhs) const;
     bool operator!=(const Segment& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const Segment& segment);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const Segment& segment);
 
   private:
     SEGMENT_TYPES         type_;

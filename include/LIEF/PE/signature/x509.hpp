@@ -30,7 +30,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class DLL_PUBLIC x509 : public Visitable {
+class LIEF_API x509 : public Visitable {
 
   friend class Parser;
   friend class SignatureParser;
@@ -69,7 +69,7 @@ class DLL_PUBLIC x509 : public Visitable {
 
   virtual ~x509(void);
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const x509& x509_cert);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const x509& x509_cert);
 
   private:
   x509(void);

@@ -33,7 +33,7 @@ namespace PE {
 class Builder;
 class Parser;
 
-class DLL_PUBLIC ExportEntry : public Visitable {
+class LIEF_API ExportEntry : public Visitable {
 
   friend class Builder;
   friend class Parser;
@@ -59,7 +59,7 @@ class DLL_PUBLIC ExportEntry : public Visitable {
   bool operator==(const ExportEntry& rhs) const;
   bool operator!=(const ExportEntry& rhs) const;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const ExportEntry& exportEntry);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const ExportEntry& exportEntry);
 
   private:
   std::string name_;

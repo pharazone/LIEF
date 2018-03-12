@@ -35,7 +35,7 @@ class ResourceData;
 class Parser;
 class Builder;
 
-class DLL_PUBLIC ResourceNode : public Visitable {
+class LIEF_API ResourceNode : public Visitable {
 
   friend class Parser;
   friend class Builder;
@@ -97,7 +97,7 @@ class DLL_PUBLIC ResourceNode : public Visitable {
   bool operator==(const ResourceNode& rhs) const;
   bool operator!=(const ResourceNode& rhs) const;
 
-  DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const ResourceNode& node);
+  LIEF_API friend std::ostream& operator<<(std::ostream& os, const ResourceNode& node);
 
   protected:
   ResourceNode(void);

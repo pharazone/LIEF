@@ -28,7 +28,7 @@
 namespace LIEF {
 namespace ELF {
 
-class DLL_PUBLIC DynamicEntry : public Visitable {
+class LIEF_API DynamicEntry : public Visitable {
   public:
 
     DynamicEntry(const Elf64_Dyn* header);
@@ -59,7 +59,7 @@ class DLL_PUBLIC DynamicEntry : public Visitable {
     bool operator==(const DynamicEntry& rhs) const;
     bool operator!=(const DynamicEntry& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const DynamicEntry& entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const DynamicEntry& entry);
 
   protected:
     DYNAMIC_TAGS tag_;

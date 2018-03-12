@@ -22,7 +22,7 @@
 
 namespace LIEF {
 
-class DLL_PUBLIC AbstractHash : public LIEF::Hash {
+class LIEF_API AbstractHash : public LIEF::Hash {
   public:
   static size_t hash(const Visitable& obj);
 

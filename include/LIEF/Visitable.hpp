@@ -44,13 +44,13 @@ class Visitable {
   Visitable& operator=(const Visitable& other);
 
   template<class T>
-  DLL_LOCAL bool is(void) const;
+  LIEF_LOCAL bool is(void) const;
 
   template<class T>
-  DLL_LOCAL output_t<T> as(void);
+  LIEF_LOCAL output_t<T> as(void);
 
   template<class T>
-  DLL_LOCAL output_const_t<T> as(void) const;
+  LIEF_LOCAL output_const_t<T> as(void) const;
 
   virtual ~Visitable(void);
   virtual void accept(Visitor& visitor) const = 0;

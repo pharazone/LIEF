@@ -23,10 +23,10 @@
 namespace LIEF {
 namespace PE {
 
-DLL_PUBLIC json to_json(const Visitable& v);
-DLL_PUBLIC std::string to_json_str(const Visitable& v);
+LIEF_API json to_json(const Visitable& v);
+LIEF_API std::string to_json_str(const Visitable& v);
 
-class DLL_PUBLIC JsonVisitor : public LIEF::JsonVisitor {
+class LIEF_API JsonVisitor : public LIEF::JsonVisitor {
   public:
   using LIEF::JsonVisitor::JsonVisitor;
 

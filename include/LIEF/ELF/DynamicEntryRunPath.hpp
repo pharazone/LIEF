@@ -24,7 +24,7 @@
 
 namespace LIEF {
 namespace ELF {
-class DLL_PUBLIC DynamicEntryRunPath : public DynamicEntry {
+class LIEF_API DynamicEntryRunPath : public DynamicEntry {
 
   public:
     static constexpr char delimiter = ':';

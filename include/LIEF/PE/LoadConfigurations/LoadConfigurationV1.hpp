@@ -33,14 +33,14 @@ namespace PE {
 //! @brief LoadConfiguration enhanced with Control Flow Guard
 //!
 //! This structure is available from Windows 8.1
-class DLL_PUBLIC LoadConfigurationV1 : public LoadConfigurationV0 {
+class LIEF_API LoadConfigurationV1 : public LoadConfigurationV0 {
   public:
   static constexpr WIN_VERSION VERSION = WIN_VERSION::WIN8_1;
 
   LoadConfigurationV1(void);
 
   template<class T>
-  DLL_LOCAL LoadConfigurationV1(const load_configuration_v1<T>* header);
+  LIEF_LOCAL LoadConfigurationV1(const load_configuration_v1<T>* header);
 
   LoadConfigurationV1& operator=(const LoadConfigurationV1&);
   LoadConfigurationV1(const LoadConfigurationV1&);

@@ -1,6 +1,6 @@
 
 
-enum _LIEF_EN(MACHO_TYPES) {
+enum _LIEF_EN_2(MACHO_TYPES, uint32_t) {
   _LIEF_EI(MH_MAGIC)    = 0xFEEDFACEu, ///< 32-bit big-endian magic
   _LIEF_EI(MH_CIGAM)    = 0xCEFAEDFEu, ///< 32-bit little-endian magic
   _LIEF_EI(MH_MAGIC_64) = 0xFEEDFACFu, ///< 64-bit big-endian magic

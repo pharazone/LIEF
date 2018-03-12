@@ -26,7 +26,7 @@ template<class T>
 using setter_t = void (LIEF::Relocation::*)(T);
 
 void init_LIEF_Relocation_class(py::module& m) {
-  py::class_<LIEF::Relocation>(m, "Relocation")
+  py::class_<LIEF::Relocation, LIEF::Visitable>(m, "Relocation")
     .def(py::init(),
         "Default constructor")
 

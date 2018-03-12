@@ -33,7 +33,7 @@ using no_const_getter = T (SymbolVersionRequirement::*)(void);
 void init_ELF_SymbolVersionRequirement_class(py::module& m) {
 
   // Symbol Version Requirement object
-  py::class_<SymbolVersionRequirement>(m, "SymbolVersionRequirement",
+  py::class_<SymbolVersionRequirement, LIEF::Visitable>(m, "SymbolVersionRequirement",
       "Class which modelize an entry in ``DT_VERNEED`` or ``.gnu.version_r`` table")
 
     .def_property("version",

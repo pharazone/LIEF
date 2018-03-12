@@ -32,7 +32,7 @@ namespace MachO {
 
 class BinaryParser;
 
-class DLL_PUBLIC RelocationDyld : public Relocation {
+class LIEF_API RelocationDyld : public Relocation {
 
   friend class BinaryParser;
 

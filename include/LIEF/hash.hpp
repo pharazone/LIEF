@@ -24,7 +24,7 @@
 
 
 namespace LIEF {
-class DLL_PUBLIC Hash : public Visitor {
+class LIEF_API Hash : public Visitor {
 
   public:
   template<class H = Hash>

@@ -25,7 +25,7 @@
 
 namespace LIEF {
 namespace ELF {
-class DLL_PUBLIC DynamicEntryFlags : public DynamicEntry {
+class LIEF_API DynamicEntryFlags : public DynamicEntry {
 
   public:
   using flags_list_t = std::set<uint32_t>;

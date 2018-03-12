@@ -26,7 +26,7 @@
 namespace LIEF {
 namespace PE {
 
-class DLL_PUBLIC RichEntry : public Visitable {
+class LIEF_API RichEntry : public Visitable {
   public:
 
     RichEntry(void);
@@ -53,7 +53,7 @@ class DLL_PUBLIC RichEntry : public Visitable {
     bool operator==(const RichEntry& rhs) const;
     bool operator!=(const RichEntry& rhs) const;
 
-    DLL_PUBLIC friend std::ostream& operator<<(std::ostream& os, const RichEntry& rich_entry);
+    LIEF_API friend std::ostream& operator<<(std::ostream& os, const RichEntry& rich_entry);
 
   private:
     uint16_t id_;

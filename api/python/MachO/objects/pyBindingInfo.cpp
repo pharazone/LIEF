@@ -32,7 +32,7 @@ using setter_t = void (BindingInfo::*)(T);
 
 void init_MachO_BindingInfo_class(py::module& m) {
 
-  py::class_<BindingInfo>(m, "BindingInfo")
+  py::class_<BindingInfo, LIEF::Visitable>(m, "BindingInfo")
 
     .def_property("binding_class",
         static_cast<getter_t<BINDING_CLASS>>(&BindingInfo::binding_class),

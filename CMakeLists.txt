@@ -128,6 +128,8 @@ source_group("Header Files\\visitors" FILES ${LIEF_VISITOR_INCLUDE_FILES})
 add_library(LIB_LIEF_STATIC STATIC ${LIBLIEF_SOURCE_FILES} ${LIEF_INCLUDE_FILES}) # Static one
 add_library(LIB_LIEF_SHARED SHARED ${LIBLIEF_SOURCE_FILES} ${LIEF_INCLUDE_FILES}) # Shared one
 
+target_compile_definitions(LIB_LIEF_STATIC PUBLIC -DLIEF_STATIC)
+
 # Abstract part
 include("${CMAKE_CURRENT_SOURCE_DIR}/src/Abstract/CMakeLists.txt")
 
@@ -162,10 +164,9 @@ endif()
 
 # Logging Configuration
 # =====================
-add_definitions(-DELPP_NO_DEFAULT_LOG_FILE)
-add_definitions(-DVDEBUG=9)
-
 if (LIEF_LOGGING)
+  add_definitions(-DELPP_NO_DEFAULT_LOG_FILE)
+  add_definitions(-DVDEBUG=9)
   set(ENABLE_LOGGING_SUPPORT 1)
 else()
   set(ENABLE_LOGGING_SUPPORT 0)

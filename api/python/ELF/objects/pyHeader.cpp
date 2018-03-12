@@ -32,7 +32,7 @@ void init_ELF_Header_class(py::module& m) {
   //
   // Header object
   //
-  py::class_<Header>(m, "Header")
+  py::class_<Header, LIEF::Visitable>(m, "Header")
     .def(py::init<>())
 
     .def_property("identity_class",
