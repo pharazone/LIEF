@@ -142,8 +142,10 @@ void Hash::visit(const DataDirectory& data_directory) {
 }
 
 void Hash::visit(const Section& section) {
-  //TODO UPCAST
-  this->process(section.sizeof_raw_data());
+  this->process(section.name());
+  this->process(section.offset());
+  this->process(section.size());
+
   this->process(section.virtual_size());
   this->process(section.virtual_address());
   this->process(section.pointerto_raw_data());

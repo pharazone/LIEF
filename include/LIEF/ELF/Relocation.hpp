@@ -48,8 +48,10 @@ class DLL_PUBLIC Relocation : public LIEF::Relocation {
     Relocation(const Elf64_Rela* header);
     Relocation(uint64_t address, uint32_t type = 0, int64_t addend = 0, bool isRela = false);
 
-    template<class T>
-    Relocation(uint64_t address, T type, int64_t addend = 0, bool isRela = false);
+    template<class T, typename = typename std::enable_if<std::is_enum<T>::value>::type>
+    Relocation(uint64_t address, T type, int64_t addend = 0, bool isRela = false) :
+      Relocation{address, static_cast<uint32_t>(type), addend, isRela}
+    {}
 
     Relocation(void);
     virtual ~Relocation(void);
@@ -95,10 +97,6 @@ class DLL_PUBLIC Relocation : public LIEF::Relocation {
 };
 
 
-template<class T>
-Relocation::Relocation(uint64_t address, T type, int64_t addend, bool isRela) :
-  Relocation{address, static_cast<uint32_t>(type), addend, isRela}
-{}
 
 }
 }

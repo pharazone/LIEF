@@ -2004,7 +2004,11 @@ INCLUDE_FILE_PATTERNS  =
 #PREDEFINED             = DISABE_DOX
 
 # Disable protected memebers
-PREDEFINED = protected=private
+PREDEFINED = "protected=private" \
+             "__attribute__(x)=" \
+             "DLL_PUBLIC="       \
+             "DLL_LOCAL="        \
+
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
@@ -2013,7 +2017,8 @@ PREDEFINED = protected=private
 # definition found in the source code.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-EXPAND_AS_DEFINED      =
+EXPAND_AS_DEFINED      =  _LIEF_EI
+EXPAND_AS_DEFINED      += _LIEF_EN
 
 # If the SKIP_FUNCTION_MACROS tag is set to YES then doxygen's preprocessor will
 # remove all references to function-like macros that are alone on a line, have

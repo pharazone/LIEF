@@ -65,6 +65,7 @@ set(LIEF_PYTHON_SRC
 set(LIEF_PYTHON_BASIC_HDR
   "${CMAKE_CURRENT_SOURCE_DIR}/pyIterators.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/pyLIEF.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/enums_wrapper.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/encoding.hpp"
 )
 

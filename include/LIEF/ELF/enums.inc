@@ -267,7 +267,7 @@ enum _LIEF_EN(OS_ABI) {
 
 /* ELF Relocations */
 
-#define ELF_RELOC(name, value) name = value,
+#define ELF_RELOC(name, value) _LIEF_EI(name) = value,
 
 /** x86_64 relocations. */
 enum _LIEF_EN(RELOC_x86_64) {
@@ -284,7 +284,6 @@ enum _LIEF_EN(RELOC_POWERPC32) {
    #include "LIEF/ELF/Relocations/PowerPC.def"
 };
 
-
 /* ELF Relocation types for PPC64 */
 enum _LIEF_EN(RELOC_POWERPC64) {
    #include "LIEF/ELF/Relocations/PowerPC64.def"
@@ -294,7 +293,6 @@ enum _LIEF_EN(RELOC_POWERPC64) {
 enum _LIEF_EN(RELOC_AARCH64) {
    #include "LIEF/ELF/Relocations/AArch64.def"
 };
-
 
 /* ELF Relocation types for ARM */
 enum _LIEF_EN(RELOC_ARM) {

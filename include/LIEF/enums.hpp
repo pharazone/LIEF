@@ -2,7 +2,8 @@
 #define LIEF_ENUMS_H_
 #include <type_traits>
 
-#define _LIEF_EN(N) class N : int64_t
+#define _LIEF_EN(N) class N : size_t
+#define _LIEF_EN_2(N, TYPE) class N : TYPE
 #define _LIEF_EI(X) X
 
 #define ENABLE_BITMASK_OPERATORS(X)  \

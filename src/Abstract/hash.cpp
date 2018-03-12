@@ -32,12 +32,19 @@ void AbstractHash::visit(const Header& header) {
 }
 
 void AbstractHash::visit(const Section& section) {
+  this->process(section.name());
+  this->process(section.offset());
+  this->process(section.size());
+  this->process(section.virtual_address());
 }
 
 void AbstractHash::visit(const Symbol& symbol) {
+  this->process(symbol.name());
 }
 
 void AbstractHash::visit(const Relocation& relocation) {
+  this->process(relocation.address());
+  this->process(relocation.size());
 }
 
 

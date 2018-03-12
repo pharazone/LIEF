@@ -36,7 +36,7 @@
     }
 
   #define LIEF_PE_VISITABLE(OBJ) \
-    inline virtual void visit(const PE::OBJ&) {}
+    virtual void visit(const PE::OBJ&) {}
 #else
   #define LIEF_PE_VISITABLE(OBJ)
   #define LIEF_PE_FORWARD(OBJ)
@@ -49,7 +49,7 @@
     class OBJ;                 \
     }
   #define LIEF_ELF_VISITABLE(OBJ)         \
-    inline virtual void visit(const ELF::OBJ&) {}
+    virtual void visit(const ELF::OBJ&) {}
 #else
   #define LIEF_ELF_FORWARD(OBJ)
   #define LIEF_ELF_VISITABLE(OBJ)
@@ -61,7 +61,7 @@
     class OBJ;                 \
     }
   #define LIEF_MACHO_VISITABLE(OBJ) \
-    inline virtual void visit(const MachO::OBJ&) {}
+    virtual void visit(const MachO::OBJ&) {}
 #else
   #define LIEF_MACHO_FORWARD(OBJ)
   #define LIEF_MACHO_VISITABLE(OBJ)
@@ -71,7 +71,7 @@
   class OBJ;
 
 #define LIEF_ABSTRACT_VISITABLE(OBJ) \
-  inline virtual void visit(const OBJ&) {}
+  virtual void visit(const OBJ&) {}
 
 namespace LIEF {
 // Forward declarations

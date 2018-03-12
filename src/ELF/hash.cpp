@@ -69,14 +69,18 @@ void Hash::visit(const Header& header) {
 
 
 void Hash::visit(const Section& section) {
-  process(section.type());
+  process(section.name());
+  process(section.size());
   process(section.content());
+  process(section.virtual_address());
+  process(section.offset());
+
+  process(section.type());
   process(section.size());
   process(section.alignment());
   process(section.information());
   process(section.entry_size());
   process(section.link());
-  process(section.name());
 }
 
 void Hash::visit(const Segment& segment) {
@@ -133,7 +137,8 @@ void Hash::visit(const DynamicEntryFlags& entry) {
 }
 
 void Hash::visit(const Symbol& symbol) {
-  this->visit(static_cast<const LIEF::Symbol&>(symbol));
+  this->process(symbol.name());
+
   process(symbol.type());
   process(symbol.binding());
   process(symbol.information());
@@ -148,15 +153,16 @@ void Hash::visit(const Symbol& symbol) {
 }
 
 void Hash::visit(const Relocation& relocation) {
-  this->visit(static_cast<const LIEF::Relocation&>(relocation));
+  this->process(relocation.address());
+  this->process(relocation.size());
 
   process(relocation.addend());
   process(relocation.type());
   process(relocation.architecture());
   process(relocation.purpose());
-  process(relocation.size());
+
   if (relocation.has_symbol()) {
-    process(relocation.symbol());
+    process(relocation.symbol().name());
   }
 
 }

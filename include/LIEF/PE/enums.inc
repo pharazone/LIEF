@@ -33,7 +33,7 @@ enum _LIEF_EN(MACHINE_TYPES) {
   _LIEF_EI(IMAGE_FILE_MACHINE_WCEMIPSV2) = 0x169   /**< MIPS little-endian WCE v2      */
 };
 
-enum _LIEF_EN(SYMBOL_SECTION_NUMBER) {
+enum _LIEF_EN_2(SYMBOL_SECTION_NUMBER, int) {
   _LIEF_EI(IMAGE_SYM_DEBUG)     = -2,
   _LIEF_EI(IMAGE_SYM_ABSOLUTE)  = -1,
   _LIEF_EI(IMAGE_SYM_UNDEFINED) = 0
@@ -61,7 +61,7 @@ enum _LIEF_EN(HEADER_CHARACTERISTICS) {
 
 
 /// Storage class tells where and what the symbol represents
-enum _LIEF_EN(SYMBOL_STORAGE_CLASS) {
+enum _LIEF_EN_2(SYMBOL_STORAGE_CLASS, int) {
   _LIEF_EI(IMAGE_SYM_CLASS_INVALID) = 0xFF,
 
   _LIEF_EI(IMAGE_SYM_CLASS_END_OF_FUNCTION)  = -1,  ///< Physical end of function
