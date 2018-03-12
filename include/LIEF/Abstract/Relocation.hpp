@@ -17,11 +17,11 @@
 #define LIEF_ABSTRACT_RELOCATION_H_
 
 #include "LIEF/types.hpp"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 namespace LIEF {
-class LIEF_API Relocation : public Visitable {
+class LIEF_API Relocation : public Object {
 
   public:
     //! @brief Default CTOR

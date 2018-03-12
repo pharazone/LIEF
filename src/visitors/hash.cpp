@@ -33,7 +33,7 @@ Hash::Hash(size_t init_value) :
 {}
 
 
-Hash& Hash::process(const Visitable& obj) {
+Hash& Hash::process(const Object& obj) {
   Hash hasher;
   obj.accept(hasher);
   this->value_ = combine(this->value_, hasher.value());

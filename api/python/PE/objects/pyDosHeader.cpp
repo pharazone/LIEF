@@ -31,7 +31,7 @@ using getter_t = getter_abs_t<uint16_t>;
 using setter_t = setter_abs_t<uint16_t>;
 
 void init_PE_DosHeader_class(py::module& m) {
-  py::class_<DosHeader, LIEF::Visitable>(m, "DosHeader")
+  py::class_<DosHeader, LIEF::Object>(m, "DosHeader")
     .def(py::init<>())
     .def_property("magic",
         static_cast<getter_t>(&DosHeader::magic),

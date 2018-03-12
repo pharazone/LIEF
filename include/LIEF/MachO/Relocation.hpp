@@ -24,7 +24,7 @@
 
 #include "LIEF/visibility.h"
 #include "LIEF/types.hpp"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/MachO/Structures.hpp"
 

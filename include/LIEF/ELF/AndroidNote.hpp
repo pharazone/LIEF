@@ -19,7 +19,7 @@
 #include <vector>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 #include "LIEF/ELF/Note.hpp"
 

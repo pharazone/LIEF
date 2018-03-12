@@ -31,7 +31,7 @@ using setter_t = void (SignerInfo::*)(T);
 
 void init_PE_SignerInfo_class(py::module& m) {
 
-  py::class_<SignerInfo, LIEF::Visitable>(m, "SignerInfo")
+  py::class_<SignerInfo, LIEF::Object>(m, "SignerInfo")
 
     .def_property_readonly("version",
         &SignerInfo::version,

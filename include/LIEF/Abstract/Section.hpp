@@ -22,11 +22,11 @@
 #include <iostream>
 
 #include "LIEF/types.hpp"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 namespace LIEF {
-class LIEF_API Section : public Visitable {
+class LIEF_API Section : public Object {
   public:
 
     static constexpr size_t npos = -1;

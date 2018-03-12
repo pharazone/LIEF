@@ -20,7 +20,7 @@
 #include <vector>
 
 #include "LIEF/types.hpp"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/MachO/Structures.hpp"
@@ -28,7 +28,7 @@
 
 namespace LIEF {
 namespace MachO {
-class LIEF_API LoadCommand : public Visitable {
+class LIEF_API LoadCommand : public Object {
   public:
     LoadCommand(void);
     LoadCommand(const load_command* command);

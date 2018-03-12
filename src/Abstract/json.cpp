@@ -18,12 +18,12 @@
 #include "LIEF/ELF.hpp"
 #include "LIEF/PE.hpp"
 #include "LIEF/MachO.hpp"
-#include "Visitable.tcc"
+#include "Object.tcc"
 #include "LIEF/config.h"
 
 namespace LIEF {
 
-json to_json_from_abstract(const Visitable& v) {
+json to_json_from_abstract(const Object& v) {
   AbstractJsonVisitor visitor;
 
 #if defined(LIEF_ELF_SUPPORT)
@@ -81,7 +81,7 @@ json to_json_from_abstract(const Visitable& v) {
 }
 
 
-std::string to_json_str_from_abstract(const Visitable& v) {
+std::string to_json_str_from_abstract(const Object& v) {
   return to_json(v).dump();
 }
 

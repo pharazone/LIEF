@@ -21,14 +21,14 @@
 #include <algorithm>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
 
 namespace LIEF {
 namespace PE {
-class LIEF_API CodeIntegrity : public Visitable {
+class LIEF_API CodeIntegrity : public Object {
   public:
   static constexpr size_t PRINT_WIDTH = 20;
   CodeIntegrity(void);

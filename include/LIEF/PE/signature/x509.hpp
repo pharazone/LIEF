@@ -17,7 +17,7 @@
 #define LIEF_PE_X509_H_
 #include <tuple>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/signature/types.hpp"
@@ -30,7 +30,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class LIEF_API x509 : public Visitable {
+class LIEF_API x509 : public Object {
 
   friend class Parser;
   friend class SignatureParser;

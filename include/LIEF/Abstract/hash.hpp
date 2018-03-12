@@ -24,7 +24,7 @@ namespace LIEF {
 
 class LIEF_API AbstractHash : public LIEF::Hash {
   public:
-  static size_t hash(const Visitable& obj);
+  static size_t hash(const Object& obj);
 
   public:
   using LIEF::Hash::Hash;

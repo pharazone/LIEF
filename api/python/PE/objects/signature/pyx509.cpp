@@ -31,7 +31,7 @@ using setter_t = void (x509::*)(T);
 
 void init_PE_x509_class(py::module& m) {
 
-  py::class_<x509, LIEF::Visitable>(m, "x509")
+  py::class_<x509, LIEF::Object>(m, "x509")
 
     .def_property_readonly("version",
         &x509::version,

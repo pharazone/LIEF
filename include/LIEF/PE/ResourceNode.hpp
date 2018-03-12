@@ -20,7 +20,7 @@
 #include <vector>
 #include <memory>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/type_traits.hpp"
@@ -35,7 +35,7 @@ class ResourceData;
 class Parser;
 class Builder;
 
-class LIEF_API ResourceNode : public Visitable {
+class LIEF_API ResourceNode : public Object {
 
   friend class Parser;
   friend class Builder;

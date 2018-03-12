@@ -31,7 +31,7 @@ template<class T>
 using no_const_getter = T (Export::*)(void);
 
 void init_PE_Export_class(py::module& m) {
-  py::class_<Export, LIEF::Visitable>(m, "Export")
+  py::class_<Export, LIEF::Object>(m, "Export")
     .def(py::init<>())
 
     .def_property("name",

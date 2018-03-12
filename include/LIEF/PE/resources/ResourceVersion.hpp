@@ -20,7 +20,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 
@@ -36,7 +36,7 @@ class ResourcesManager;
 //! @brief Modelization of the data associated with the ``RT_VERSION`` entry
 //!
 //! See: ``VS_VERSIONINFO`` - https://msdn.microsoft.com/en-us/library/windows/desktop/ms647001(v=vs.85).aspx
-class LIEF_API ResourceVersion : public Visitable {
+class LIEF_API ResourceVersion : public Object {
   friend class ResourcesManager;
 
   public:

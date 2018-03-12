@@ -33,7 +33,7 @@ namespace MachO {
 
 class BinaryParser;
 
-class LIEF_API BindingInfo : public Visitable {
+class LIEF_API BindingInfo : public Object {
 
   friend class BinaryParser;
 

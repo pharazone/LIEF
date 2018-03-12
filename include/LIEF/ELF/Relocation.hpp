@@ -20,7 +20,7 @@
 #include <map>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/Abstract/Relocation.hpp"

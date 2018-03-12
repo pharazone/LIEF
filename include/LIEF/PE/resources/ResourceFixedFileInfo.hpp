@@ -20,7 +20,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 
@@ -29,7 +29,7 @@ namespace PE {
 
 //! @brief Modelization of the @link VS_FIXEDFILEINFO https://msdn.microsoft.com/en-us/library/windows/desktop/ms646997(v=vs.85).aspx @endlink
 //! Structure
-class LIEF_API ResourceFixedFileInfo : public Visitable {
+class LIEF_API ResourceFixedFileInfo : public Object {
 
   public:
   ResourceFixedFileInfo(void);

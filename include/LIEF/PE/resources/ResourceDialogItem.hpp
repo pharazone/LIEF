@@ -22,7 +22,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 
@@ -30,7 +30,7 @@ namespace LIEF {
 namespace PE {
 class ResourcesManager;
 
-class LIEF_API ResourceDialogItem : public Visitable {
+class LIEF_API ResourceDialogItem : public Object {
 
   friend class ResourcesManager;
 

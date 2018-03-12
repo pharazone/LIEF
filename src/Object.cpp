@@ -13,25 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <iomanip>
+#include "LIEF/Object.hpp"
 
 namespace LIEF {
-
-template<class T>
-bool Visitable::is(void) const {
-  return typeid(*this) == typeid(T);
+Object::Object(void) = default;
+Object::Object(const Object&) = default;
+Object& Object::operator=(const Object&) = default;
+Object::~Object(void) = default;
 }
-
-template<class T>
-Visitable::output_t<T> Visitable::as(void) {
-  return dynamic_cast<Visitable::output_t<T>>(this);
-}
-
-template<class T>
-Visitable::output_const_t<T> Visitable::as(void) const {
-  return dynamic_cast<Visitable::output_const_t<T>>(this);
-}
-
-
-} // namespace LIEF
-

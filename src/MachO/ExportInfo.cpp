@@ -48,7 +48,7 @@ ExportInfo& ExportInfo::operator=(ExportInfo other) {
 }
 
 ExportInfo::ExportInfo(const ExportInfo& other) :
-  Visitable{other},
+  Object{other},
   node_offset_{other.node_offset_},
   flags_{other.flags_},
   address_{other.address_},

@@ -21,14 +21,14 @@
 #include <algorithm>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
 
 namespace LIEF {
 namespace PE {
-class LIEF_API CodeView : public Visitable {
+class LIEF_API CodeView : public Object {
   public:
 
   CodeView(void);

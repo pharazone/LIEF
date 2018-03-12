@@ -21,7 +21,7 @@
 #include <vector>
 #include <functional>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 #include "LIEF/ELF/type_traits.hpp"
 
@@ -31,7 +31,7 @@
 
 namespace LIEF {
 namespace ELF {
-class LIEF_API Header : public Visitable {
+class LIEF_API Header : public Object {
 
   public:
     using identity_t = std::array<uint8_t, static_cast<size_t>(IDENTITY::EI_NIDENT)>;

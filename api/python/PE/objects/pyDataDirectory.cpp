@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (DataDirectory::*)(T);
 
 void init_PE_DataDirectory_class(py::module& m) {
-  py::class_<DataDirectory, LIEF::Visitable>(m, "DataDirectory")
+  py::class_<DataDirectory, LIEF::Object>(m, "DataDirectory")
     .def(py::init<>())
     .def_property("rva",
         static_cast<getter_t<uint32_t>>(&DataDirectory::RVA),

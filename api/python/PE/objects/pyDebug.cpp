@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (Debug::*)(T);
 
 void init_PE_Debug_class(py::module& m) {
-  py::class_<Debug, LIEF::Visitable>(m, "Debug")
+  py::class_<Debug, LIEF::Object>(m, "Debug")
     .def(py::init<>())
 
     .def_property("characteristics",

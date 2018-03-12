@@ -46,7 +46,7 @@ set(LIEF_PYTHON_BASIC_SRC
   "${CMAKE_CURRENT_SOURCE_DIR}/pyIterators.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/pyExceptions.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/pyLogger.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/pyVisitable.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pyObject.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/encoding.cpp"
 )
 

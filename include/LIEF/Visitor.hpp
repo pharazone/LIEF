@@ -76,7 +76,7 @@
 namespace LIEF {
 // Forward declarations
 // ====================
-class Visitable;
+class Object;
 LIEF_ABSTRACT_FORWARD(Binary)
 LIEF_ABSTRACT_FORWARD(Header)
 LIEF_ABSTRACT_FORWARD(Section)
@@ -191,7 +191,7 @@ class LIEF_API Visitor {
   template<typename Arg1, typename... Args>
   void operator()(Arg1&& arg1, Args&&... args);
 
-  virtual void visit(const Visitable&);
+  virtual void visit(const Object&);
 
   // Abstract Part
   // =============

@@ -29,7 +29,7 @@ using setter_t = void (Header::*)(T);
 
 void init_MachO_Header_class(py::module& m) {
 
-  py::class_<Header, LIEF::Visitable>(m, "Header")
+  py::class_<Header, LIEF::Object>(m, "Header")
     .def(py::init<>())
 
     .def_property("magic",

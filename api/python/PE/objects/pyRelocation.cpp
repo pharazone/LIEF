@@ -31,7 +31,7 @@ template<class T>
 using it_t = T (Relocation::*)(void);
 
 void init_PE_Relocation_class(py::module& m) {
-  py::class_<Relocation, LIEF::Visitable>(m, "Relocation")
+  py::class_<Relocation, LIEF::Object>(m, "Relocation")
     .def(py::init<>())
 
     .def_property("virtual_address",

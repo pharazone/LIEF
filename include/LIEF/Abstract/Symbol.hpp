@@ -18,11 +18,11 @@
 
 #include <string>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 namespace LIEF {
-class LIEF_API Symbol : public Visitable {
+class LIEF_API Symbol : public Object {
   public:
     Symbol(void);
     Symbol(const std::string& name);

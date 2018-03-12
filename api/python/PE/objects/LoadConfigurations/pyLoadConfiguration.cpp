@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (LoadConfiguration::*)(T);
 
 void init_PE_LoadConfiguration_class(py::module& m) {
-  py::class_<LoadConfiguration, LIEF::Visitable>(m, "LoadConfiguration",
+  py::class_<LoadConfiguration, LIEF::Object>(m, "LoadConfiguration",
     "Class modeling the default PE's ``LoadConfiguration``\n\n"
     "It's the base class for any future version of the structure"
     )

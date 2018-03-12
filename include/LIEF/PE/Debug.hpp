@@ -19,7 +19,7 @@
 #include <string>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
@@ -31,7 +31,7 @@ namespace PE {
 class Parser;
 class Builder;
 
-class LIEF_API Debug : public Visitable {
+class LIEF_API Debug : public Object {
 
   friend class Parser;
   friend class Builder;

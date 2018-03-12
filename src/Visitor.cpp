@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 #include "LIEF/Visitor.hpp"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 namespace LIEF {
 Visitor::Visitor(void) = default;
@@ -24,7 +24,7 @@ Visitor::~Visitor(void) = default;
 void Visitor::operator()(void) {
 }
 
-void Visitor::visit(const Visitable& v) {
+void Visitor::visit(const Object& v) {
   v.accept(*this);
 }
 

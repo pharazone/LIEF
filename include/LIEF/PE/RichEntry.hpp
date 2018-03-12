@@ -18,7 +18,7 @@
 #include <array>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
@@ -26,7 +26,7 @@
 namespace LIEF {
 namespace PE {
 
-class LIEF_API RichEntry : public Visitable {
+class LIEF_API RichEntry : public Object {
   public:
 
     RichEntry(void);

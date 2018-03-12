@@ -21,7 +21,7 @@
 #include <iostream>
 #include <memory>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/ELF/type_traits.hpp"
@@ -35,7 +35,7 @@ class Parser;
 class Binary;
 
 //! @brief Class which represent segments
-class LIEF_API Segment : public Visitable {
+class LIEF_API Segment : public Object {
 
   friend class Parser;
   friend class Section;

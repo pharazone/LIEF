@@ -59,7 +59,7 @@ BindingInfo& BindingInfo::operator=(BindingInfo other) {
 }
 
 BindingInfo::BindingInfo(const BindingInfo& other) :
-  Visitable{other},
+  Object{other},
   class_{other.class_},
   binding_type_{other.binding_type_},
   segment_{nullptr},

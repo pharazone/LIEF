@@ -16,14 +16,14 @@
 
 #include "LIEF/MachO/hash.hpp"
 #include "LIEF/MachO.hpp"
-#include "Visitable.tcc"
+#include "Object.tcc"
 
 namespace LIEF {
 namespace MachO {
 
 Hash::~Hash(void) = default;
 
-size_t Hash::hash(const Visitable& obj) {
+size_t Hash::hash(const Object& obj) {
   return LIEF::Hash::hash<LIEF::MachO::Hash>(obj);
 }
 

@@ -23,7 +23,7 @@ namespace LIEF {
 namespace PE {
 
 Relocation::Relocation(const Relocation& other) :
-  Visitable{other},
+  Object{other},
   block_size_{other.block_size_},
   virtual_address_{other.virtual_address_},
   entries_{}

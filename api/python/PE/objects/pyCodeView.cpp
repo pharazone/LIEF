@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (CodeView::*)(T);
 
 void init_PE_CodeView_class(py::module& m) {
-  py::class_<CodeView, LIEF::Visitable>(m, "CodeView")
+  py::class_<CodeView, LIEF::Object>(m, "CodeView")
     .def_property_readonly("cv_signature",
         static_cast<getter_t<CODE_VIEW_SIGNATURES>>(&CodeView::cv_signature),
         "Type of the code view (" RST_CLASS_REF(lief.PE.CODE_VIEW_SIGNATURES) ")")

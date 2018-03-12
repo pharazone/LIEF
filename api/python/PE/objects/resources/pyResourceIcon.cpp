@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (ResourceIcon::*)(T);
 
 void init_PE_ResourcesIcon_class(py::module& m) {
-  py::class_<ResourceIcon, LIEF::Visitable>(m, "ResourceIcon")
+  py::class_<ResourceIcon, LIEF::Object>(m, "ResourceIcon")
     .def(py::init<const std::string&>(),
         "Constructor that takes a icon path as input",
         "icon_path"_a)

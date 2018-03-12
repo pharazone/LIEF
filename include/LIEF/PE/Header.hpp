@@ -21,14 +21,14 @@
 #include <algorithm>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
 
 namespace LIEF {
 namespace PE {
-class LIEF_API Header : public Visitable {
+class LIEF_API Header : public Object {
   public:
     using signature_t = std::array<uint8_t, sizeof(PE_Magic)>;
     Header(void);

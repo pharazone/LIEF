@@ -18,7 +18,7 @@
 #include <vector>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/type_traits.hpp"
@@ -31,7 +31,7 @@ namespace PE {
 class Parser;
 class Builder;
 
-class LIEF_API Relocation : public Visitable {
+class LIEF_API Relocation : public Object {
 
   friend class Parser;
   friend class Builder;

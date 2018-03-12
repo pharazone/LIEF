@@ -16,7 +16,7 @@
 #ifndef LIEF_PE_SIGNER_INFO_H_
 #define LIEF_PE_SIGNER_INFO_H_
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/signature/AuthenticatedAttributes.hpp"
@@ -29,7 +29,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class LIEF_API SignerInfo : public Visitable {
+class LIEF_API SignerInfo : public Object {
 
   friend class Parser;
   friend class SignatureParser;

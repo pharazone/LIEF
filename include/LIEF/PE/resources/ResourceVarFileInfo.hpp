@@ -20,7 +20,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 
@@ -33,7 +33,7 @@ class ResourceVersion;
 //! @brief This object describes information about languages supported by the application
 //!
 //! @see LIEF::PE::ResourceVersion
-class LIEF_API ResourceVarFileInfo : public Visitable {
+class LIEF_API ResourceVarFileInfo : public Object {
 
   friend class ResourcesManager;
   friend class ResourceVersion;

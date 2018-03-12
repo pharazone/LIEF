@@ -21,7 +21,7 @@
 #include <vector>
 #include <memory>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/ELF/type_traits.hpp"
@@ -33,7 +33,7 @@ namespace ELF {
 class Parser;
 
 //! @brief Class which modelize an entry in ``DT_VERNEED`` or ``.gnu.version_r`` table
-class LIEF_API SymbolVersionRequirement : public Visitable {
+class LIEF_API SymbolVersionRequirement : public Object {
   friend class Parser;
 
   public:

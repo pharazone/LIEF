@@ -21,7 +21,7 @@
 
 #include "LIEF/types.hpp"
 #include "LIEF/visibility.h"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/Abstract/type_traits.hpp"
 #include "LIEF/Abstract/Header.hpp"
@@ -33,7 +33,7 @@
 namespace LIEF {
 
 //! @brief Abstract binary
-class LIEF_API Binary : public Visitable {
+class LIEF_API Binary : public Object {
 
   public:
     Binary(void);

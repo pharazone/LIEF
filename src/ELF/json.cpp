@@ -25,14 +25,14 @@ namespace LIEF {
 namespace ELF {
 
 
-json to_json(const Visitable& v) {
+json to_json(const Object& v) {
   JsonVisitor visitor;
   visitor(v);
   return visitor.get();
 }
 
 
-std::string to_json_str(const Visitable& v) {
+std::string to_json_str(const Object& v) {
   return ELF::to_json(v).dump();
 }
 

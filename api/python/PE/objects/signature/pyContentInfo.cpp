@@ -31,7 +31,7 @@ using setter_t = void (ContentInfo::*)(T);
 
 void init_PE_ContentInfo_class(py::module& m) {
 
-  py::class_<ContentInfo, LIEF::Visitable>(m, "ContentInfo")
+  py::class_<ContentInfo, LIEF::Object>(m, "ContentInfo")
 
     .def_property_readonly("content_type",
         &ContentInfo::content_type,

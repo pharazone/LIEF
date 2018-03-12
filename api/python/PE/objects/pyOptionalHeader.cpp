@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (OptionalHeader::*)(T);
 
 void init_PE_OptionalHeader_class(py::module& m) {
-  py::class_<OptionalHeader, LIEF::Visitable>(m, "OptionalHeader")
+  py::class_<OptionalHeader, LIEF::Object>(m, "OptionalHeader")
     .def(py::init<>())
     .def_property("magic",
         static_cast<getter_t<PE_TYPE>>(&OptionalHeader::magic),

@@ -21,7 +21,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/CodeView.hpp"

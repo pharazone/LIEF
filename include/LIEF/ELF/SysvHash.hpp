@@ -19,7 +19,7 @@
 #include <vector>
 #include <iostream>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 namespace LIEF {
@@ -29,7 +29,7 @@ class Parser;
 class Builder;
 class Binary;
 
-class LIEF_API SysvHash : public Visitable {
+class LIEF_API SysvHash : public Object {
 
   friend class Parser;
   friend class Builder;

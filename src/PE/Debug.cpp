@@ -24,7 +24,7 @@ namespace LIEF {
 namespace PE {
 
 Debug::Debug(const Debug& copy) :
-  Visitable{copy},
+  Object{copy},
   characteristics_{copy.characteristics_},
   timestamp_{copy.timestamp_},
   majorversion_{copy.majorversion_},

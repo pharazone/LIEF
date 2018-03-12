@@ -20,7 +20,7 @@
 #include <set>
 
 #include "LIEF/visibility.h"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/BinaryStream/VectorStream.hpp"
 
 #include "LIEF/PE/type_traits.hpp"
@@ -35,7 +35,7 @@ namespace PE {
 
 //! @brief The Resource Manager provides an enhanced API to
 //! manipulate the resource tree.
-class LIEF_API ResourcesManager : public Visitable {
+class LIEF_API ResourcesManager : public Object {
   public:
   ResourcesManager(void) = delete;
   ResourcesManager(ResourceNode *rsrc);

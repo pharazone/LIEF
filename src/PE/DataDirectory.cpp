@@ -50,7 +50,7 @@ DataDirectory::DataDirectory(const pe_data_directory *header, DATA_DIRECTORY typ
 {}
 
 DataDirectory::DataDirectory(const DataDirectory& other) :
-  Visitable{other},
+  Object{other},
   rva_{other.rva_},
   size_{other.size_},
   type_{other.type_},

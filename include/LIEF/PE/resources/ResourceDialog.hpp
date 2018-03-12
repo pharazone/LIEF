@@ -22,7 +22,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 #include "LIEF/PE/type_traits.hpp"
@@ -41,7 +41,7 @@ class ResourcesManager;
 //!
 //! ResourceDialog::is_extended checks
 //! the type of the Dialog
-class LIEF_API ResourceDialog : public Visitable {
+class LIEF_API ResourceDialog : public Object {
 
   friend class ResourcesManager;
 

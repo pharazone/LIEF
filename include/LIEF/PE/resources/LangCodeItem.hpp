@@ -22,7 +22,7 @@
 
 #include "LIEF/visibility.h"
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/PE/Structures.hpp"
 
@@ -36,7 +36,7 @@ class ResourcesManager;
 //! @see LIEF::PE::ResourceStringFileInfo
 //!
 //! see: https://msdn.microsoft.com/fr-fr/library/windows/desktop/ms646992(v=vs.85).aspx
-class LIEF_API LangCodeItem : public Visitable {
+class LIEF_API LangCodeItem : public Object {
 
   friend class ResourcesManager;
 

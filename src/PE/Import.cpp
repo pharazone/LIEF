@@ -27,7 +27,7 @@ namespace PE {
 Import::~Import(void) = default;
 
 Import::Import(const Import& other) :
-  Visitable{other},
+  Object{other},
   entries_{other.entries_},
   directory_{nullptr},
   iat_directory_{nullptr},

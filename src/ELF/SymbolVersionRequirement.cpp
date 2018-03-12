@@ -51,7 +51,7 @@ SymbolVersionRequirement::SymbolVersionRequirement(const Elf32_Verneed *header) 
 
 
 SymbolVersionRequirement::SymbolVersionRequirement(const SymbolVersionRequirement& other) :
-  Visitable{other},
+  Object{other},
   version_{other.version_},
   name_{other.name_}
 {

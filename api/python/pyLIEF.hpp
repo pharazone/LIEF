@@ -37,7 +37,7 @@ namespace py = pybind11;
 
 using namespace pybind11::literals;
 
-void init_LIEF_Visitable_class(py::module&);
+void init_LIEF_Object_class(py::module&);
 void init_LIEF_Logger(py::module&);
 void init_LIEF_exceptions(py::module&);
 void init_LIEF_module(py::module&);

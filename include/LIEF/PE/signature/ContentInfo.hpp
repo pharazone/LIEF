@@ -16,7 +16,7 @@
 #ifndef LIEF_PE_CONTENT_INFO_H_
 #define LIEF_PE_CONTENT_INFO_H_
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/signature/types.hpp"
@@ -27,7 +27,7 @@ namespace PE {
 class Parser;
 class SignatureParser;
 
-class LIEF_API ContentInfo : public Visitable {
+class LIEF_API ContentInfo : public Object {
 
   friend class Parser;
   friend class SignatureParser;

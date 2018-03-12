@@ -26,7 +26,7 @@ namespace PE {
 TLS::~TLS(void) = default;
 
 TLS::TLS(void) :
-  Visitable{},
+  Object{},
   callbacks_{},
   VAOfRawData_{std::make_pair<uint64_t>(0, 0)},
   addressof_index_{0},
@@ -39,7 +39,7 @@ TLS::TLS(void) :
 {}
 
 TLS::TLS(const TLS& copy) :
-  Visitable{copy},
+  Object{copy},
   callbacks_{copy.callbacks_},
   VAOfRawData_{copy.VAOfRawData_},
   addressof_index_{copy.addressof_index_},

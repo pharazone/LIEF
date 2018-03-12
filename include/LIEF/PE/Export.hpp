@@ -21,7 +21,7 @@
 #include <string>
 #include <functional>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/type_traits.hpp"
@@ -34,7 +34,7 @@ namespace PE {
 class Builder;
 class Parser;
 
-class LIEF_API Export : public Visitable {
+class LIEF_API Export : public Object {
 
   friend class Builder;
   friend class Parser;

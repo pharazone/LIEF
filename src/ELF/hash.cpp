@@ -22,7 +22,7 @@ namespace ELF {
 
 Hash::~Hash(void) = default;
 
-size_t Hash::hash(const Visitable& obj) {
+size_t Hash::hash(const Object& obj) {
   return LIEF::Hash::hash<LIEF::ELF::Hash>(obj);
 }
 

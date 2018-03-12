@@ -33,7 +33,7 @@ using no_const_getter = T (Segment::*)(void);
 
 
 void init_ELF_Segment_class(py::module& m) {
-  py::class_<Segment, LIEF::Visitable>(m, "Segment")
+  py::class_<Segment, LIEF::Object>(m, "Segment")
 
     .def(py::init<>())
     .def(py::init<const std::vector<uint8_t>&>())

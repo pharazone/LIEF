@@ -24,7 +24,7 @@
 
 namespace LIEF {
 
-json to_json(const Visitable& v) {
+json to_json(const Object& v) {
   json node;
 #if defined(LIEF_PE_SUPPORT)
   PE::JsonVisitor pe_visitor{node};
@@ -40,7 +40,7 @@ json to_json(const Visitable& v) {
   return node;
 }
 
-std::string to_json_str(const Visitable& v) {
+std::string to_json_str(const Object& v) {
   return to_json(v).dump();
 }
 

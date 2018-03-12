@@ -52,7 +52,7 @@ SymbolVersionDefinition::SymbolVersionDefinition(const Elf32_Verdef *header) :
 
 
 SymbolVersionDefinition::SymbolVersionDefinition(const SymbolVersionDefinition& other) :
-  Visitable{other},
+  Object{other},
   version_{other.version_},
   flags_{other.flags_},
   ndx_{other.ndx_},

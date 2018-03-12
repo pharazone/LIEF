@@ -32,7 +32,7 @@ namespace ELF {
 
 Segment::~Segment(void) = default;
 Segment::Segment(const Segment& other) :
-  Visitable{other},
+  Object{other},
   type_{other.type_},
   flags_{other.flags_},
   file_offset_{other.file_offset_},

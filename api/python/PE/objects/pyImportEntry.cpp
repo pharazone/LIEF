@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (ImportEntry::*)(T);
 
 void init_PE_ImportEntry_class(py::module& m) {
-  py::class_<ImportEntry, LIEF::Visitable>(m, "ImportEntry")
+  py::class_<ImportEntry, LIEF::Object>(m, "ImportEntry")
     .def(py::init<>())
 
     .def(py::init<const std::string&>(),

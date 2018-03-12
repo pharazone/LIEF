@@ -22,7 +22,7 @@
 #include <memory>
 #include <functional>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/ELF/type_traits.hpp"
@@ -36,7 +36,7 @@ class Parser;
 
 //! @brief Class which modelization of an entry defined in ``DT_VERDEF``
 //! (or ``.gnu.version_d``)
-class LIEF_API SymbolVersionDefinition : public Visitable {
+class LIEF_API SymbolVersionDefinition : public Object {
   friend class Parser;
   public:
     SymbolVersionDefinition(void);

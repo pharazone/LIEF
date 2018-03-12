@@ -19,14 +19,14 @@
 #include <iostream>
 #include <set>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 #include "LIEF/types.hpp"
 
 #include "LIEF/Abstract/enums.hpp"
 
 namespace LIEF {
-class LIEF_API Header : public Visitable {
+class LIEF_API Header : public Object {
   public:
   Header(void);
   Header(const Header&);

@@ -29,7 +29,7 @@ namespace MachO {
 
 class BinaryParser;
 
-class LIEF_API ExportInfo : public Visitable {
+class LIEF_API ExportInfo : public Object {
 
   friend class BinaryParser;
 

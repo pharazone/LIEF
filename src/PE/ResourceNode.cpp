@@ -41,7 +41,7 @@ ResourceNode::ResourceNode(void) :
 //}
 
 ResourceNode::ResourceNode(const ResourceNode& other) :
-  Visitable{other},
+  Object{other},
   id_{other.id_},
   name_{other.name_},
   depth_{other.depth_}

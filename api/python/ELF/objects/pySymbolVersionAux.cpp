@@ -30,7 +30,7 @@ using setter_t = void (SymbolVersionAux::*)(T);
 void init_ELF_SymbolVersionAux_class(py::module& m) {
 
   // Symbol Version Auxiliary object
-  py::class_<SymbolVersionAux, LIEF::Visitable>(m, "SymbolVersionAux",
+  py::class_<SymbolVersionAux, LIEF::Object>(m, "SymbolVersionAux",
       "Class which modelize an Auxiliary Symbol version")
 
     .def_property("name",

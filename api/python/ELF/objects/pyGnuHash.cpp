@@ -30,7 +30,7 @@ using setter_t = void (GnuHash::*)(T);
 
 void init_ELF_GnuHash_class(py::module& m) {
 
-  py::class_<GnuHash, LIEF::Visitable>(m, "GnuHash")
+  py::class_<GnuHash, LIEF::Object>(m, "GnuHash")
     .def(py::init<>())
 
     .def_property_readonly("nb_buckets",

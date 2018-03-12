@@ -27,8 +27,8 @@
 namespace LIEF {
 namespace ELF {
 
-LIEF_API json to_json(const Visitable& v);
-LIEF_API std::string to_json_str(const Visitable& v);
+LIEF_API json to_json(const Object& v);
+LIEF_API std::string to_json_str(const Object& v);
 
 
 class LIEF_API JsonVisitor : public LIEF::JsonVisitor {

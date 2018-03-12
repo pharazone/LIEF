@@ -19,7 +19,7 @@
 #include <iostream>
 #include <set>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/Abstract/enums.hpp"
@@ -28,7 +28,7 @@
 
 namespace LIEF {
 namespace MachO {
-class LIEF_API Header : public Visitable {
+class LIEF_API Header : public Object {
   public:
     Header(void);
     Header(const mach_header_64 *header);

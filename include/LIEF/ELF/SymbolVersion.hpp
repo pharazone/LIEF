@@ -21,7 +21,7 @@
 #include <list>
 #include <memory>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/ELF/Structures.hpp"
@@ -32,7 +32,7 @@ namespace ELF {
 class Parser;
 
 //! @brief Class which modelization of an entry defined in ``DT_VERSYM``
-class LIEF_API SymbolVersion : public Visitable {
+class LIEF_API SymbolVersion : public Object {
   friend class Parser;
 
   public:

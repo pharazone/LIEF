@@ -31,7 +31,7 @@ template<class T>
 using no_const_getter = T (TLS::*)(void);
 
 void init_PE_TLS_class(py::module& m) {
-  py::class_<TLS, LIEF::Visitable>(m, "TLS")
+  py::class_<TLS, LIEF::Object>(m, "TLS")
     .def(py::init<>(),
         "Default constructor")
 

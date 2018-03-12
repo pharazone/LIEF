@@ -32,7 +32,7 @@ using setter_t = void (AuthenticatedAttributes::*)(T);
 
 void init_PE_AuthenticatedAttributes_class(py::module& m) {
 
-  py::class_<AuthenticatedAttributes, LIEF::Visitable>(m, "AuthenticatedAttributes")
+  py::class_<AuthenticatedAttributes, LIEF::Object>(m, "AuthenticatedAttributes")
 
     .def_property_readonly("content_type",
         &AuthenticatedAttributes::content_type,

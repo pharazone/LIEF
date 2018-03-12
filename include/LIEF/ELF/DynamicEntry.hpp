@@ -21,14 +21,14 @@
 #include <iostream>
 
 #include "LIEF/visibility.h"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 
 #include "LIEF/ELF/Structures.hpp"
 
 namespace LIEF {
 namespace ELF {
 
-class LIEF_API DynamicEntry : public Visitable {
+class LIEF_API DynamicEntry : public Object {
   public:
 
     DynamicEntry(const Elf64_Dyn* header);

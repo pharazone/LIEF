@@ -25,7 +25,7 @@ namespace MachO {
 
 class LIEF_API Hash : public LIEF::Hash {
   public:
-  static size_t hash(const Visitable& obj);
+  static size_t hash(const Object& obj);
 
   public:
   using LIEF::Hash::Hash;

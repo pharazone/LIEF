@@ -26,8 +26,8 @@
 
 namespace LIEF {
 
-LIEF_API json to_json_from_abstract(const Visitable& v);
-LIEF_API std::string to_json_str_from_abstract(const Visitable& v);
+LIEF_API json to_json_from_abstract(const Object& v);
+LIEF_API std::string to_json_str_from_abstract(const Object& v);
 
 
 class LIEF_API AbstractJsonVisitor : public LIEF::JsonVisitor {

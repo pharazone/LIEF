@@ -30,7 +30,7 @@ using add_const_t = typename std::add_const<T>::type;
 
 namespace LIEF {
 
-class Visitable {
+class Object {
   public:
   template<class T>
   using output_t = add_pointer_t<decay_t<T>>;
@@ -39,9 +39,9 @@ class Visitable {
   using output_const_t = add_pointer_t<add_const_t<decay_t<T>>>;
 
   public:
-  Visitable(void);
-  Visitable(const Visitable& other);
-  Visitable& operator=(const Visitable& other);
+  Object(void);
+  Object(const Object& other);
+  Object& operator=(const Object& other);
 
   template<class T>
   LIEF_LOCAL bool is(void) const;
@@ -52,7 +52,7 @@ class Visitable {
   template<class T>
   LIEF_LOCAL output_const_t<T> as(void) const;
 
-  virtual ~Visitable(void);
+  virtual ~Object(void);
   virtual void accept(Visitor& visitor) const = 0;
 };
 }

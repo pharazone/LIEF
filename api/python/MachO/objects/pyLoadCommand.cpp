@@ -30,7 +30,7 @@ using setter_t = void (LoadCommand::*)(T);
 
 void init_MachO_LoadCommand_class(py::module& m) {
 
-  py::class_<LoadCommand, LIEF::Visitable>(m, "LoadCommand")
+  py::class_<LoadCommand, LIEF::Object>(m, "LoadCommand")
     .def(py::init<>())
 
     .def_property("command",

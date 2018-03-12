@@ -21,7 +21,7 @@
 #include <memory>
 #include <utility>
 
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/visibility.h"
 
 #include "LIEF/PE/Structures.hpp"
@@ -35,7 +35,7 @@ namespace PE {
 class Parser;
 class Builder;
 
-class LIEF_API TLS : public Visitable {
+class LIEF_API TLS : public Object {
   friend class Parser;
   friend class Builder;
 

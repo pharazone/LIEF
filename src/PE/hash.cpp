@@ -16,14 +16,14 @@
 
 #include "LIEF/PE/hash.hpp"
 #include "LIEF/PE.hpp"
-#include "Visitable.tcc"
+#include "Object.tcc"
 
 namespace LIEF {
 namespace PE {
 
 Hash::~Hash(void) = default;
 
-size_t Hash::hash(const Visitable& obj) {
+size_t Hash::hash(const Object& obj) {
   return LIEF::Hash::hash<LIEF::PE::Hash>(obj);
 }
 

@@ -19,7 +19,7 @@
 #include <iostream>
 
 #include "LIEF/visibility.h"
-#include "LIEF/Visitable.hpp"
+#include "LIEF/Object.hpp"
 #include "LIEF/Visitor.hpp"
 
 
@@ -28,7 +28,7 @@ class LIEF_API Hash : public Visitor {
 
   public:
   template<class H = Hash>
-  static size_t hash(const Visitable& obj);
+  static size_t hash(const Object& obj);
 
   static size_t hash(const std::vector<uint8_t>& raw);
   static size_t hash(const void* raw, size_t size);
@@ -42,7 +42,7 @@ class LIEF_API Hash : public Visitor {
   Hash(void);
   Hash(size_t init_value);
 
-  virtual Hash& process(const Visitable& obj);
+  virtual Hash& process(const Object& obj);
   virtual Hash& process(size_t integer);
   virtual Hash& process(const std::string& str);
   virtual Hash& process(const std::u16string& str);
@@ -100,7 +100,7 @@ size_t Hash::combine(size_t lhs, U rhs) {
 
 
 template<class H>
-size_t Hash::hash(const Visitable& obj) {
+size_t Hash::hash(const Object& obj) {
   H h;
   obj.accept(h);
   return h.value();

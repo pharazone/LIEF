@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (ResourceVarFileInfo::*)(T);
 
 void init_PE_ResourceVarFileInfo_class(py::module& m) {
-  py::class_<ResourceVarFileInfo, LIEF::Visitable>(m, "ResourceVarFileInfo",
+  py::class_<ResourceVarFileInfo, LIEF::Object>(m, "ResourceVarFileInfo",
       "This object describes information about languages supported by the application")
 
     .def_property("type",

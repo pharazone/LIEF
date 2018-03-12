@@ -38,7 +38,7 @@ x509::x509(mbedtls_x509_crt* ca) :
 {}
 
 x509::x509(const x509& other) :
-  Visitable::Visitable{other}
+  Object::Object{other}
 {
   mbedtls_x509_crt* crt = new mbedtls_x509_crt{};
   mbedtls_x509_crt_init(crt);
