@@ -10,17 +10,17 @@
 template<>                           \
 struct EnableBitMaskOperators<X>     \
 {                                    \
-  static const bool enable = true;   \
+  static const bool bit_mask_enabled = true;   \
 };
 
 template<typename Enum>
 struct EnableBitMaskOperators
 {
-  static const bool enable = false;
+  static const bool bit_mask_enabled = false;
 };
 
 template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+typename std::enable_if<EnableBitMaskOperators<Enum>::bit_mask_enabled, Enum>::type
 operator |(Enum lhs, Enum rhs)
 {
     using underlying = typename std::underlying_type<Enum>::type;
@@ -31,7 +31,7 @@ operator |(Enum lhs, Enum rhs)
 }
 
 template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+typename std::enable_if<EnableBitMaskOperators<Enum>::bit_mask_enabled, Enum>::type
 operator &(Enum lhs, Enum rhs)
 {
     using underlying = typename std::underlying_type<Enum>::type;
@@ -42,7 +42,7 @@ operator &(Enum lhs, Enum rhs)
 }
 
 template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+typename std::enable_if<EnableBitMaskOperators<Enum>::bit_mask_enabled, Enum>::type
 operator ~(Enum e)
 {
     using underlying = typename std::underlying_type<Enum>::type;
@@ -50,7 +50,7 @@ operator ~(Enum e)
 }
 
 template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, typename std::add_lvalue_reference<Enum>::type>::type
+typename std::enable_if<EnableBitMaskOperators<Enum>::bit_mask_enabled, typename std::add_lvalue_reference<Enum>::type>::type
 operator |=(Enum& lhs, Enum rhs)
 {
     using underlying = typename std::underlying_type<Enum>::type;
@@ -59,7 +59,7 @@ operator |=(Enum& lhs, Enum rhs)
 }
 
 template<typename Enum>
-typename std::enable_if<EnableBitMaskOperators<Enum>::enable, typename std::add_lvalue_reference<Enum>::type>::type
+typename std::enable_if<EnableBitMaskOperators<Enum>::bit_mask_enabled, typename std::add_lvalue_reference<Enum>::type>::type
 operator &=(Enum& lhs, Enum rhs)
 {
     using underlying = typename std::underlying_type<Enum>::type;
