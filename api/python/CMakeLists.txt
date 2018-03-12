@@ -4,8 +4,20 @@ include(CheckCXXCompilerFlag)
 include(CheckCCompilerFlag)
 
 
-unset(PYTHON_VERSION)
+macro(ADD_FLAG_IF_SUPPORTED flag name)
+  CHECK_C_COMPILER_FLAG("${flag}"   "C_SUPPORTS_${name}")
+  CHECK_CXX_COMPILER_FLAG("${flag}" "CXX_SUPPORTS_${name}")
 
+  if (C_SUPPORTS_${name})
+    target_compile_options(pyLIEF PRIVATE ${flag})
+  endif()
+
+  if (CXX_SUPPORTS_${name})
+    target_compile_options(pyLIEF PRIVATE ${flag})
+  endif()
+endmacro()
+
+unset(PYTHON_VERSION)
 
 find_package(PythonLibsNew EXACT ${PYTHON_VERSION} MODULE REQUIRED)
 
@@ -104,17 +116,8 @@ if(LIEF_COVERAGE)
   set(PYLIEF_DEPS_LIBRARIES ${PYLIEF_DEPS_LIBRARIES} gcov)
 endif()
 
-set(PYLIEF_COMPILE_FLAGS)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  CHECK_CXX_COMPILER_FLAG("-Wno-macro-redefined" HAS_NO_MACRO_REDEFINED)
-  set(PYLIEF_COMPILE_FLAGS ${PYLIEF_COMPILE_FLAGS} -Wall -Wextra -Wpedantic)
-  if (HAS_NO_MACRO_REDEFINED)
-    set(PYLIEF_COMPILE_FLAGS ${PYLIEF_COMPILE_FLAGS} -Wno-macro-redefined)
-  endif()
-
-  target_compile_options(pyLIEF PRIVATE ${PYLIEF_COMPILE_FLAGS})
-endif()
+ADD_FLAG_IF_SUPPORTED("-Wno-macro-redefined" NO_MACRO_REDEFINED)
 
 set_target_properties(pyLIEF PROPERTIES PREFIX "" OUTPUT_NAME "_pylief")
 add_dependencies(pyLIEF lief_pybind11)

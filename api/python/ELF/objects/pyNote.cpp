@@ -44,8 +44,8 @@ void init_ELF_Note_class(py::module& m) {
         )
 
     .def_property("type",
-        static_cast<getter_t<uint32_t>>(&Note::type),
-        static_cast<setter_t<uint32_t>>(&Note::type),
+        static_cast<getter_t<NOTE_TYPES>>(&Note::type),
+        static_cast<setter_t<NOTE_TYPES>>(&Note::type),
         "Return the type of the note. Can be one of the " RST_CLASS_REF(lief.ELF.NOTE_TYPES) " values"
         )
 

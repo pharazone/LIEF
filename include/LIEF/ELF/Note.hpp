@@ -60,7 +60,7 @@ class DLL_PUBLIC Note : public Visitable {
   const std::string& name(void) const;
 
   //! @brief Return the type of the note. It could be one of the NOTE_TYPES values
-  uint32_t type(void) const;
+  NOTE_TYPES type(void) const;
 
   //! @brief Return the description associated with the note
   const description_t& description(void) const;
@@ -74,7 +74,7 @@ class DLL_PUBLIC Note : public Visitable {
   version_t version(void) const;
 
   void name(const std::string& name);
-  void type(uint32_t type);
+  void type(NOTE_TYPES type);
   void description(const description_t& description);
 
   //! @brief Sizeof the **raw** note
@@ -91,7 +91,7 @@ class DLL_PUBLIC Note : public Visitable {
 
   protected:
   std::string   name_;
-  uint32_t      type_;
+  NOTE_TYPES    type_;
   description_t description_;
 };
 

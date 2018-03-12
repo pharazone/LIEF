@@ -307,9 +307,9 @@ void Parser::parse_notes(uint64_t offset, uint64_t size) {
     current_offset += sizeof(uint32_t);
     VLOG(VDEBUG) << "Description size: " << std::hex << descsz;
 
-    uint32_t type = this->stream_->read_integer<uint32_t>(current_offset);
+    NOTE_TYPES type = static_cast<NOTE_TYPES>(this->stream_->read_integer<uint32_t>(current_offset));
     current_offset += sizeof(uint32_t);
-    VLOG(VDEBUG) << "Type: " << std::hex << type;
+    VLOG(VDEBUG) << "Type: " << std::hex << static_cast<size_t>(type);
 
     if (namesz == 0) { // System reserves
       break;
@@ -332,7 +332,7 @@ void Parser::parse_notes(uint64_t offset, uint64_t size) {
     }
     std::unique_ptr<Note> note;
 
-    if (name == AndroidNote::NAME and static_cast<NOTE_TYPES>(type) == NOTE_TYPES::NT_GNU_ABI_TAG) {
+    if (name == AndroidNote::NAME and type == NOTE_TYPES::NT_GNU_ABI_TAG) {
       note = std::unique_ptr<AndroidNote>{new AndroidNote{name, type, std::move(description)}};
     } else {
       note = std::unique_ptr<Note>{new Note{name, type, std::move(description)}};

@@ -1820,7 +1820,7 @@ void Builder::build_notes(void) {
         reinterpret_cast<const uint8_t*>(&descsz) + sizeof(uint32_t));
 
     // Then the note's type
-    const uint32_t type = note.type();
+    const NOTE_TYPES type = note.type();
     raw_notes.insert(
         std::end(raw_notes),
         reinterpret_cast<const uint8_t*>(&type),
