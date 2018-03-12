@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (ExportEntry::*)(T);
 
 void init_PE_ExportEntry_class(py::module& m) {
-  py::class_<ExportEntry>(m, "ExportEntry")
+  py::class_<ExportEntry, LIEF::Visitable>(m, "ExportEntry")
     .def(py::init<>())
 
     .def_property("name",

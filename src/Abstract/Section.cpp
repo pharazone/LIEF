@@ -19,7 +19,7 @@
 #include <cmath>
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/Abstract/hash.hpp"
 #include "LIEF/exception.hpp"
 
 #include "LIEF/Abstract/Section.hpp"
@@ -205,8 +205,8 @@ void Section::accept(Visitor& visitor) const {
 
 
 bool Section::operator==(const Section& rhs) const {
-  size_t hash_lhs = Hash::hash(*this);
-  size_t hash_rhs = Hash::hash(rhs);
+  size_t hash_lhs = AbstractHash::hash(*this);
+  size_t hash_rhs = AbstractHash::hash(rhs);
   return hash_lhs == hash_rhs;
 }
 

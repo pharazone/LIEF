@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (RichEntry::*)(T);
 
 void init_PE_RichEntry_class(py::module& m) {
-  py::class_<RichEntry>(m, "RichEntry")
+  py::class_<RichEntry, LIEF::Visitable>(m, "RichEntry")
     .def(py::init<>())
     .def(py::init<uint16_t, uint16_t, uint32_t>(),
         "Contructor from "

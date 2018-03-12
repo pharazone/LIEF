@@ -35,10 +35,10 @@ ResourceNode::ResourceNode(void) :
 {}
 
 
-ResourceNode& ResourceNode::operator=(ResourceNode other) {
-  this->swap(other);
-  return *this;
-}
+//ResourceNode& ResourceNode::operator=(ResourceNode other) {
+//  this->swap(other);
+//  return *this;
+//}
 
 ResourceNode::ResourceNode(const ResourceNode& other) :
   Visitable{other},
@@ -46,14 +46,9 @@ ResourceNode::ResourceNode(const ResourceNode& other) :
   name_{other.name_},
   depth_{other.depth_}
 {
+  this->childs_.reserve(other.childs_.size());
   for (const ResourceNode* node : other.childs_) {
-    if (const ResourceDirectory* directory = dynamic_cast<const ResourceDirectory*>(node)) {
-      this->childs_.push_back(new ResourceDirectory{*directory});
-    }
-
-    if (const ResourceData* data = dynamic_cast<const ResourceData*>(node)) {
-      this->childs_.push_back(new ResourceData{*data});
-    }
+    this->childs_.push_back(node->clone());
   }
 }
 

@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (LangCodeItem::*)(T);
 
 void init_PE_LangCodeItem_class(py::module& m) {
-  py::class_<LangCodeItem>(m, "LangCodeItem",
+  py::class_<LangCodeItem, LIEF::Visitable>(m, "LangCodeItem",
       "Class which modelize the childs of the " RST_CLASS_REF(lief.PE.ResourceStringFileInfo) "\n\n"
       "See: https://msdn.microsoft.com/fr-fr/library/windows/desktop/ms646992(v=vs.85).aspx")
 

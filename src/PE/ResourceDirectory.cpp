@@ -44,7 +44,7 @@ ResourceDirectory::ResourceDirectory(const ResourceDirectory& other) :
 
 
 void ResourceDirectory::swap(ResourceDirectory& other) {
-  ResourceNode::swap(static_cast<ResourceNode&>(other));
+  ResourceNode::swap(other);
   std::swap(this->characteristics_,     other.characteristics_);
   std::swap(this->timeDateStamp_,       other.timeDateStamp_);
   std::swap(this->majorVersion_,        other.majorVersion_);
@@ -72,6 +72,10 @@ ResourceDirectory::ResourceDirectory(const pe_resource_directory_table* header) 
   numberOfNameEntries_(header->NumberOfNameEntries),
   numberOfIDEntries_(header->NumberOfIDEntries)
 {}
+
+ResourceDirectory* ResourceDirectory::clone(void) const {
+  return new ResourceDirectory{*this};
+}
 
 
 uint32_t ResourceDirectory::characteristics(void) const {

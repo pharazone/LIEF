@@ -16,7 +16,7 @@
 #include <string>
 #include <sstream>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/MachO/hash.hpp"
 #include "LIEF/MachO/Header.hpp"
 
 #include "pyMachO.hpp"
@@ -98,7 +98,7 @@ void init_MachO_Header_class(py::module& m) {
     .def("__ne__", &Header::operator!=)
     .def("__hash__",
         [] (const Header& header) {
-          return LIEF::Hash::hash(header);
+          return Hash::hash(header);
         })
 
     .def(py::self += HEADER_FLAGS())

@@ -42,11 +42,13 @@ class DLL_PUBLIC ResourceNode : public Visitable {
 
   public:
   ResourceNode(const ResourceNode& other);
-  ResourceNode& operator=(ResourceNode other);
+  //ResourceNode& operator=(ResourceNode other);
 
   void swap(ResourceNode& other);
 
   virtual ~ResourceNode(void);
+
+  virtual ResourceNode* clone(void) const = 0;
 
   //! @brief Integer that identifies the Type, Name, or
   //! Language ID entry.

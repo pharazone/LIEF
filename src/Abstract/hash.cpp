@@ -19,6 +19,7 @@
 
 namespace LIEF {
 
+AbstractHash::~AbstractHash(void) = default;
 
 size_t AbstractHash::hash(const Visitable& obj) {
   return LIEF::Hash::hash<LIEF::AbstractHash>(obj);
@@ -26,9 +27,19 @@ size_t AbstractHash::hash(const Visitable& obj) {
 
 
 void AbstractHash::visit(const Binary& binary) {
+  this->process(binary.format());
+  this->process(binary.header());
+  this->process(std::begin(binary.symbols()), std::end(binary.symbols()));
+  this->process(std::begin(binary.sections()), std::end(binary.sections()));
+  this->process(std::begin(binary.relocations()), std::end(binary.relocations()));
 }
 
 void AbstractHash::visit(const Header& header) {
+  this->process(header.architecture());
+  this->process(header.modes());
+  this->process(header.object_type());
+  this->process(header.entrypoint());
+  this->process(header.endianness());
 }
 
 void AbstractHash::visit(const Section& section) {

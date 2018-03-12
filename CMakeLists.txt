@@ -100,7 +100,7 @@ set(LIEF_INC_FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/BinaryStream/VectorStream.hpp")
 
 set(LIEF_VISITOR_INCLUDE_FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/visitors/Hash.hpp")
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/hash.hpp")
 
 
 set(LIEF_INCLUDE_FILES

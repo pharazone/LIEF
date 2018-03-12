@@ -20,6 +20,7 @@
 namespace LIEF {
 namespace ELF {
 
+Hash::~Hash(void) = default;
 
 size_t Hash::hash(const Visitable& obj) {
   return LIEF::Hash::hash<LIEF::ELF::Hash>(obj);

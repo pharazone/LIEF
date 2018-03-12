@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (CodeIntegrity::*)(T);
 
 void init_PE_CodeIntegrity_class(py::module& m) {
-  py::class_<CodeIntegrity>(m, "CodeIntegrity")
+  py::class_<CodeIntegrity, LIEF::Visitable>(m, "CodeIntegrity")
     .def(py::init<>())
 
     .def_property("flags",

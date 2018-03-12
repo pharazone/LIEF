@@ -28,7 +28,7 @@ template<class T>
 using setter_t = void (ResourceNode::*)(T);
 
 void init_PE_ResourceNode_class(py::module& m) {
-  py::class_<ResourceNode>(m, "ResourceNode")
+  py::class_<ResourceNode, LIEF::Visitable>(m, "ResourceNode")
 
     .def_property("id",
         static_cast<getter_t<uint32_t>>(&ResourceNode::id),

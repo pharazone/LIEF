@@ -46,6 +46,8 @@ class DLL_PUBLIC ResourceDirectory : public ResourceNode {
 
     virtual ~ResourceDirectory(void);
 
+    virtual ResourceDirectory* clone(void) const override;
+
     //! @brief Resource flags. This field is reserved for future use.
     //! It is currently set to zero.
     uint32_t characteristics(void) const;

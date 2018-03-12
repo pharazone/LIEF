@@ -85,12 +85,8 @@ class DLL_PUBLIC Hash : public Visitor {
     return *this;
   }
 
-  virtual void visit(size_t n) override;
-  virtual void visit(const std::string& str) override;
-  virtual void visit(const std::u16string& str) override;
-  virtual void visit(const std::vector<uint8_t>& raw) override;
-
   size_t value(void) const;
+  virtual ~Hash(void);
 
   protected:
   size_t value_;

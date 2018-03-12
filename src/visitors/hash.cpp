@@ -18,9 +18,11 @@
 
 #include "mbedtls/sha256.h"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/hash.hpp"
 
 namespace LIEF {
+
+Hash::~Hash(void) = default;
 
 Hash::Hash(void) :
   value_{0}
@@ -57,22 +59,6 @@ Hash& Hash::process(const std::u16string& str) {
 Hash& Hash::process(const std::vector<uint8_t>& raw) {
   this->value_ = combine(this->value_, Hash::hash(raw));
   return *this;
-}
-
-void Hash::visit(size_t n) {
-  this->value_ = combine(this->value_, std::hash<size_t>{}(n));
-}
-
-void Hash::visit(const std::string& str) {
-  this->value_ = combine(this->value_, std::hash<std::string>{}(str));
-}
-
-void Hash::visit(const std::u16string& str) {
-  this->value_ = combine(this->value_, std::hash<std::u16string>{}(str));
-}
-
-void Hash::visit(const std::vector<uint8_t>& raw) {
-  this->value_ = combine(this->value_, Hash::hash(raw));
 }
 
 size_t Hash::value(void) const {

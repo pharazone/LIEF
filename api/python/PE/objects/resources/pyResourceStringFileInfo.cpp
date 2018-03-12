@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (ResourceStringFileInfo::*)(T);
 
 void init_PE_ResourceStringFileInfo_class(py::module& m) {
-  py::class_<ResourceStringFileInfo>(m, "ResourceStringFileInfo",
+  py::class_<ResourceStringFileInfo, LIEF::Visitable>(m, "ResourceStringFileInfo",
       "Modelization of the ``StringFileInfo`` structure\n\n"
       "See: https://msdn.microsoft.com/fr-fr/library/windows/desktop/ms646989(v=vs.85).aspx")
 

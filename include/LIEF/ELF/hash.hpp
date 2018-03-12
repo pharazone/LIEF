@@ -17,7 +17,7 @@
 #define LIEF_ELF_HASH_H_
 
 #include "LIEF/visibility.h"
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/hash.hpp"
 #include "LIEF/ELF.hpp"
 
 namespace LIEF {
@@ -54,6 +54,8 @@ class DLL_PUBLIC Hash : public LIEF::Hash {
   virtual void visit(const AndroidNote& note)               override;
   virtual void visit(const GnuHash& gnuhash)                override;
   virtual void visit(const SysvHash& sysvhash)              override;
+
+  virtual ~Hash(void);
 };
 
 }

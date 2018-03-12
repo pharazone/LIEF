@@ -34,7 +34,7 @@ template<class T, class P>
 using no_const_func = T (Import::*)(P);
 
 void init_PE_Import_class(py::module& m) {
-  py::class_<Import>(m, "Import")
+  py::class_<Import, LIEF::Visitable>(m, "Import")
     .def(py::init<>(),
         "Default constructor with a library name")
 

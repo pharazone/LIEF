@@ -15,7 +15,7 @@
  */
 
 #include "LIEF/PE/json.hpp"
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/hash.hpp"
 #include "LIEF/PE.hpp"
 
 namespace LIEF {

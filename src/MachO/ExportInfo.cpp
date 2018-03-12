@@ -16,7 +16,7 @@
 #include <numeric>
 #include <iomanip>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/MachO/hash.hpp"
 #include "LIEF/MachO/SegmentCommand.hpp"
 #include "LIEF/MachO/Symbol.hpp"
 #include "LIEF/MachO/ExportInfo.hpp"
@@ -100,13 +100,7 @@ Symbol& ExportInfo::symbol(void) {
 }
 
 void ExportInfo::accept(Visitor& visitor) const {
-  visitor.visit(this->node_offset());
-  visitor.visit(this->flags());
-  visitor.visit(this->address());
-
-  if (this->has_symbol()) {
-    visitor(this->symbol());
-  }
+  visitor.visit(*this);
 }
 
 

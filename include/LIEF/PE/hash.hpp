@@ -17,7 +17,7 @@
 #define LIEF_PE_HASH_H_
 
 #include "LIEF/visibility.h"
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/hash.hpp"
 #include "LIEF/PE.hpp"
 #include "LIEF/Abstract/hash.hpp"
 
@@ -81,6 +81,8 @@ class DLL_PUBLIC Hash : public LIEF::Hash {
   virtual void visit(const LoadConfigurationV5& config)  override;
   virtual void visit(const LoadConfigurationV6& config)  override;
   virtual void visit(const LoadConfigurationV7& config)  override;
+
+  virtual ~Hash(void);
 };
 
 }

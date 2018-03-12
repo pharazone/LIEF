@@ -191,37 +191,6 @@ class DLL_PUBLIC Visitor {
   template<typename Arg1, typename... Args>
   void operator()(Arg1&& arg1, Args&&... args);
 
-  // Visit Fundamental types
-  // =======================
-  template<
-    typename T,
-    typename std::enable_if<std::is_integral<T>::value>::type* = nullptr>
-  void visit(T n) {
-    this->visit(static_cast<size_t>(n));
-  }
-
-  template<
-    typename T,
-    size_t N,
-    typename std::enable_if<std::is_integral<T>::value>::type* = nullptr>
-  void visit(const std::array<T, N>& array) {
-    for (const T& v : array) {
-      this->visit(static_cast<size_t>(v));
-    }
-  }
-
-  template<typename T, typename U>
-  void visit(const std::pair<T, U>& p) {
-    this->visit(std::get<0>(p));
-    this->visit(std::get<1>(p));
-  }
-
-
-  virtual void visit(size_t n);
-  virtual void visit(const std::string& str);
-  virtual void visit(const std::u16string& str);
-  virtual void visit(const std::vector<uint8_t>& raw);
-
   virtual void visit(const Visitable&);
 
   // Abstract Part
@@ -443,6 +412,12 @@ class DLL_PUBLIC Visitor {
   //! @brief Method to visit a LIEF::MachO::DylibCommand
   LIEF_MACHO_VISITABLE(DylibCommand)
 
+  //! @brief Method to visit a LIEF::MachO::ThreadCommand
+  LIEF_MACHO_VISITABLE(ThreadCommand)
+
+  //! @brief Method to visit a LIEF::MachO::RPathCommand
+  LIEF_MACHO_VISITABLE(RPathCommand)
+
   //! @brief Method to visit a LIEF::MachO::Symbol
   LIEF_MACHO_VISITABLE(Symbol)
 
@@ -461,18 +436,11 @@ class DLL_PUBLIC Visitor {
   //! @brief Method to visit a LIEF::MachO::ExportInfo
   LIEF_MACHO_VISITABLE(ExportInfo)
 
-  //! @brief Method to visit a LIEF::MachO::ThreadCommand
-  LIEF_MACHO_VISITABLE(ThreadCommand)
-
-  //! @brief Method to visit a LIEF::MachO::RPathCommand
-  LIEF_MACHO_VISITABLE(RPathCommand)
-
   template<class T>
   void dispatch(const T& obj);
 
 
   private:
-
   std::set<size_t> visited_;
 };
 

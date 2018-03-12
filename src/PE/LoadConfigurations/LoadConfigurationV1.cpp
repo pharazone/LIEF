@@ -16,7 +16,7 @@
 #include <iomanip>
 #include <numeric>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/PE/hash.hpp"
 #include "LIEF/exception.hpp"
 #include "LIEF/PE/EnumToString.hpp"
 #include "LIEF/PE/LoadConfigurations.hpp"

@@ -34,9 +34,12 @@ ResourceData::ResourceData(const ResourceData& other) :
   reserved_{other.reserved_}
 {}
 
+ResourceData* ResourceData::clone(void) const {
+  return new ResourceData{*this};
+}
 
 void ResourceData::swap(ResourceData& other) {
-  ResourceNode::swap(static_cast<ResourceNode&>(other));
+  ResourceNode::swap(other);
 
   std::swap(this->content_,    other.content_);
   std::swap(this->code_page_,  other.code_page_);

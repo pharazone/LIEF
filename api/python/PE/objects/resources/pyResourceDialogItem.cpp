@@ -29,7 +29,7 @@ template<class T>
 using setter_t = void (ResourceDialogItem::*)(T);
 
 void init_PE_ResourcesDialogItem_class(py::module& m) {
-  py::class_<ResourceDialogItem>(m, "ResourceDialogItem")
+  py::class_<ResourceDialogItem, LIEF::Visitable>(m, "ResourceDialogItem")
 
     .def_property_readonly("is_extended",
         &ResourceDialogItem::is_extended,

@@ -44,6 +44,8 @@ class DLL_PUBLIC ResourceData : public ResourceNode {
 
   virtual ~ResourceData(void);
 
+  virtual ResourceData* clone(void) const override;
+
   //! @brief The code page that is used to decode code point
   //! values within the resource data. Typically, the code
   //! page would be the Unicode code page.

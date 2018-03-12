@@ -18,7 +18,7 @@
 #include <string>
 #include <sstream>
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/MachO/hash.hpp"
 #include "LIEF/MachO/ExportInfo.hpp"
 
 #include "pyMachO.hpp"
@@ -61,7 +61,7 @@ void init_MachO_ExportInfo_class(py::module& m) {
     .def("__ne__", &ExportInfo::operator!=)
     .def("__hash__",
         [] (const ExportInfo& export_info) {
-          return LIEF::Hash::hash(export_info);
+          return Hash::hash(export_info);
         })
 
 

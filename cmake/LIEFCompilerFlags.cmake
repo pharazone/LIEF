@@ -122,6 +122,9 @@ set(msvc_warning_flags
       # Update 1. Re-evaluate the usefulness of this diagnostic with Update 2.
   -wd4592 # Suppress ''var': symbol will be dynamically initialized (implementation limitation)
   -wd4319 # Suppress ''operator' : zero extending 'type' to 'type' of greater size'
+  -wd4710 # Suppress 'function not inlined'
+  -wd4820 # Suppress 'XXX bytes padding added after data member'
+  -wd4514 # Suppress 'unreferenced inline function has been removed'
 
   # Ideally, we'd like this warning to be enabled, but MSVC 2013 doesn't
   # support the 'aligned' attribute in the way that clang sources requires (for
@@ -154,9 +157,10 @@ if (MSVC_IDE)
     "Number of parallel compiler jobs. 0 means use all processors. Default is 0.")
   if (NOT LIEF_COMPILER_JOBS STREQUAL "1")
     if(LIEF_COMPILER_JOBS STREQUAL "0")
+      message(STATUS "Number of parallel compiler jobs set to /MP")
       add_definitions(/MP)
     else()
-      message(STATUS "Number of parallel compiler jobs set to " ${LIEF_COMPILER_JOBS})
+      message(STATUS "Number of parallel compiler jobs set to /MP${LIEF_COMPILER_JOBS}")
       add_definitions(/MP${LIEF_COMPILER_JOBS})
     endif()
   else()

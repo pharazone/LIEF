@@ -24,24 +24,6 @@ Visitor::~Visitor(void) = default;
 void Visitor::operator()(void) {
 }
 
-
-// visit methods
-// =============
-
-// Fundamental types
-// =================
-void Visitor::visit(size_t) {
-}
-
-void Visitor::visit(const std::string&) {
-}
-
-void Visitor::visit(const std::u16string&) {
-}
-
-void Visitor::visit(const std::vector<uint8_t>&) {
-}
-
 void Visitor::visit(const Visitable& v) {
   v.accept(*this);
 }

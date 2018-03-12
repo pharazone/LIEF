@@ -21,6 +21,8 @@
 namespace LIEF {
 namespace PE {
 
+Hash::~Hash(void) = default;
+
 size_t Hash::hash(const Visitable& obj) {
   return LIEF::Hash::hash<LIEF::PE::Hash>(obj);
 }

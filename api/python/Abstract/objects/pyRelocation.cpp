@@ -15,7 +15,7 @@
  */
 #include "init.hpp"
 
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/Abstract/hash.hpp"
 
 #include "LIEF/Abstract/Relocation.hpp"
 
@@ -48,7 +48,7 @@ void init_LIEF_Relocation_class(py::module& m) {
     .def("__ne__", &LIEF::Relocation::operator!=)
     .def("__hash__",
         [] (const LIEF::Relocation& relocation) {
-          return LIEF::Hash::hash(relocation);
+          return LIEF::AbstractHash::hash(relocation);
         })
 
     .def("__str__",

@@ -17,7 +17,7 @@
 #define LIEF_ABSTRACT_HASH_H_
 
 #include "LIEF/visibility.h"
-#include "LIEF/visitors/Hash.hpp"
+#include "LIEF/hash.hpp"
 #include "LIEF/Abstract.hpp"
 
 namespace LIEF {
@@ -36,6 +36,8 @@ class DLL_PUBLIC AbstractHash : public LIEF::Hash {
   virtual void visit(const Section& section)       override;
   virtual void visit(const Symbol& symbol)         override;
   virtual void visit(const Relocation& relocation) override;
+
+  virtual ~AbstractHash(void);
 };
 
 }

@@ -32,7 +32,7 @@ template<class T, class P>
 using no_const_func = T (ResourcesManager::*)(P);
 
 void init_PE_ResourcesManager_class(py::module& m) {
-  py::class_<ResourcesManager>(m, "ResourcesManager",
+  py::class_<ResourcesManager, LIEF::Visitable>(m, "ResourcesManager",
       "The Resource Manager provides an enhanced API to manipulate the resource tree")
 
     .def_property_readonly("has_manifest",
