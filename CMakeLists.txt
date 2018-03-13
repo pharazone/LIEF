@@ -128,7 +128,8 @@ source_group("Header Files\\visitors" FILES ${LIEF_VISITOR_INCLUDE_FILES})
 add_library(LIB_LIEF_STATIC STATIC ${LIBLIEF_SOURCE_FILES} ${LIEF_INCLUDE_FILES}) # Static one
 add_library(LIB_LIEF_SHARED SHARED ${LIBLIEF_SOURCE_FILES} ${LIEF_INCLUDE_FILES}) # Shared one
 
-target_compile_definitions(LIB_LIEF_STATIC PUBLIC -DLIEF_STATIC)
+target_compile_definitions(LIB_LIEF_STATIC PRIVATE -DLIEF_STATIC)
+target_compile_definitions(LIB_LIEF_SHARED PRIVATE -DLIEF_EXPORTS)
 
 # Abstract part
 include("${CMAKE_CURRENT_SOURCE_DIR}/src/Abstract/CMakeLists.txt")

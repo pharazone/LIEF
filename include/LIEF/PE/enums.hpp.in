@@ -2,6 +2,7 @@
 #define LIEF_PE_ENUMS_H_
 
 #include "LIEF/enums.hpp"
+#include "LIEF/PE/undef.h"
 
 namespace LIEF {
 namespace PE {

@@ -27,15 +27,21 @@ namespace LIEF {
 json to_json(const Object& v) {
   json node;
 #if defined(LIEF_PE_SUPPORT)
-  PE::JsonVisitor pe_visitor{node};
+  PE::JsonVisitor pe_visitor;
   pe_visitor(v);
-  node = pe_visitor.get();
+  const json& pejson = pe_visitor.get();
+  if (pejson.type() != json::value_t::null) {
+    node.update(std::move(pejson));
+  }
 #endif
 
 #if defined(LIEF_ELF_SUPPORT)
-  ELF::JsonVisitor elf_visitor{node};
+  ELF::JsonVisitor elf_visitor;
   elf_visitor(v);
-  node = elf_visitor.get();
+  const json& elfjson = elf_visitor.get();
+  if (elfjson.type() != json::value_t::null) {
+    node.update(std::move(elfjson));
+  }
 #endif
   return node;
 }
