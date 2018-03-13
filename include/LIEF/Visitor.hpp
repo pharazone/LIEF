@@ -29,49 +29,8 @@
 
 #include "LIEF/PE/signature/types.hpp"
 
-#if defined(LIEF_PE_SUPPORT)
-  #define LIEF_PE_FORWARD(OBJ) \
-    namespace PE   {           \
-    class OBJ;                 \
-    }
+#include "LIEF/visitor_macros.hpp"
 
-  #define LIEF_PE_VISITABLE(OBJ) \
-    virtual void visit(const PE::OBJ&) {}
-#else
-  #define LIEF_PE_VISITABLE(OBJ)
-  #define LIEF_PE_FORWARD(OBJ)
-#endif
-
-
-#if defined(LIEF_ELF_SUPPORT)
-  #define LIEF_ELF_FORWARD(OBJ) \
-    namespace ELF   {           \
-    class OBJ;                 \
-    }
-  #define LIEF_ELF_VISITABLE(OBJ)         \
-    virtual void visit(const ELF::OBJ&) {}
-#else
-  #define LIEF_ELF_FORWARD(OBJ)
-  #define LIEF_ELF_VISITABLE(OBJ)
-#endif
-
-#if defined(LIEF_MACHO_SUPPORT)
-  #define LIEF_MACHO_FORWARD(OBJ) \
-    namespace MachO   {           \
-    class OBJ;                 \
-    }
-  #define LIEF_MACHO_VISITABLE(OBJ) \
-    virtual void visit(const MachO::OBJ&) {}
-#else
-  #define LIEF_MACHO_FORWARD(OBJ)
-  #define LIEF_MACHO_VISITABLE(OBJ)
-#endif
-
-#define LIEF_ABSTRACT_FORWARD(OBJ) \
-  class OBJ;
-
-#define LIEF_ABSTRACT_VISITABLE(OBJ) \
-  virtual void visit(const OBJ&) {}
 
 namespace LIEF {
 // Forward declarations

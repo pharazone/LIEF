@@ -34,7 +34,7 @@ namespace ELF {
 class LIEF_API Header : public Object {
 
   public:
-    using identity_t = std::array<uint8_t, static_cast<size_t>(IDENTITY::EI_NIDENT)>;
+    using identity_t = std::array<uint8_t, 16>;
 
     Header(void);
     Header(const Elf32_Ehdr *header);

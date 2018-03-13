@@ -96,6 +96,7 @@ set(LIEF_INC_FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/visibility.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Object.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/Visitor.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/visitor_macros.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/BinaryStream/BinaryStream.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/include/LIEF/BinaryStream/VectorStream.hpp")
 
