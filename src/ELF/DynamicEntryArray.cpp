@@ -25,6 +25,13 @@ DynamicEntryArray::DynamicEntryArray(void) = default;
 DynamicEntryArray& DynamicEntryArray::operator=(const DynamicEntryArray&) = default;
 DynamicEntryArray::DynamicEntryArray(const DynamicEntryArray&) = default;
 
+
+DynamicEntryArray::DynamicEntryArray(DYNAMIC_TAGS tag, const array_t& array) :
+  DynamicEntry::DynamicEntry{tag, 0},
+  array_{array}
+{}
+
+
 DynamicEntryArray::array_t& DynamicEntryArray::array(void) {
   return const_cast<DynamicEntryArray::array_t&>(static_cast<const DynamicEntryArray*>(this)->array());
 }

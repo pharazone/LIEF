@@ -33,6 +33,8 @@ class LIEF_API DynamicEntryArray : public DynamicEntry {
   using DynamicEntry::DynamicEntry;
 
   DynamicEntryArray(void);
+  DynamicEntryArray(DYNAMIC_TAGS tag, const array_t& array);
+
   DynamicEntryArray& operator=(const DynamicEntryArray&);
   DynamicEntryArray(const DynamicEntryArray&);
 
