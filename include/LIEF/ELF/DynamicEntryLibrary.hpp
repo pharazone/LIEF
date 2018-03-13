@@ -30,7 +30,7 @@ class LIEF_API DynamicEntryLibrary : public DynamicEntry {
     using DynamicEntry::DynamicEntry;
 
     DynamicEntryLibrary(void);
-    DynamicEntryLibrary(const std::string& name = "");
+    DynamicEntryLibrary(const std::string& name);
 
     DynamicEntryLibrary& operator=(const DynamicEntryLibrary&);
     DynamicEntryLibrary(const DynamicEntryLibrary&);

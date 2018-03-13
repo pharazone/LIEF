@@ -22,15 +22,19 @@
 namespace LIEF {
 namespace ELF {
 
-DynamicEntryRunPath::DynamicEntryRunPath(void) = default;
+
 DynamicEntryRunPath& DynamicEntryRunPath::operator=(const DynamicEntryRunPath&) = default;
 DynamicEntryRunPath::DynamicEntryRunPath(const DynamicEntryRunPath&) = default;
+
+DynamicEntryRunPath::DynamicEntryRunPath(void) :
+  DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_RUNPATH, 0},
+  runpath_{}
+{}
 
 DynamicEntryRunPath::DynamicEntryRunPath(const std::string& runpath) :
   DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_RUNPATH, 0},
   runpath_{runpath}
-{
-}
+{}
 
 
 DynamicEntryRunPath::DynamicEntryRunPath(const std::vector<std::string>& paths) :

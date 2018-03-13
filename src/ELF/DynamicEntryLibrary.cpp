@@ -20,15 +20,18 @@
 namespace LIEF {
 namespace ELF {
 
-DynamicEntryLibrary::DynamicEntryLibrary(void) = default;
 DynamicEntryLibrary& DynamicEntryLibrary::operator=(const DynamicEntryLibrary&) = default;
 DynamicEntryLibrary::DynamicEntryLibrary(const DynamicEntryLibrary&) = default;
+
+DynamicEntryLibrary::DynamicEntryLibrary(void) :
+  DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_NEEDED, 0},
+  libname_{}
+{}
 
 DynamicEntryLibrary::DynamicEntryLibrary(const std::string& name) :
   DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_NEEDED, 0},
   libname_{name}
-{
-}
+{}
 
 const std::string& DynamicEntryLibrary::name(void) const {
   return this->libname_;

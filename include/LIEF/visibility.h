@@ -28,14 +28,17 @@
   #define LIEF_HELPER_LOCAL  __attribute__ ((visibility ("hidden")))
 #endif
 
-#ifdef LIEF_STATIC
+#if defined(LIEF_STATIC)
   #define LIEF_API
   #define LIEF_LOCAL
 #elif defined(LIEF_EXPORTS)
   #define LIEF_API   LIEF_HELPER_EXPORT
   #define LIEF_LOCAL LIEF_HELPER_LOCAL
-#else
+#elif defined(LIEF_IMPORT)
   #define LIEF_API   LIEF_HELPER_IMPORT
+  #define LIEF_LOCAL LIEF_HELPER_LOCAL
+#else
+  #define LIEF_API
   #define LIEF_LOCAL LIEF_HELPER_LOCAL
 #endif
 

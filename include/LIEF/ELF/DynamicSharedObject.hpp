@@ -28,9 +28,6 @@ class LIEF_API DynamicSharedObject : public DynamicEntry {
 
   public:
     using DynamicEntry::DynamicEntry;
-
-    DynamicSharedObject(const Elf64_Dyn* header);
-    DynamicSharedObject(const Elf32_Dyn* header);
     DynamicSharedObject(void);
     DynamicSharedObject(const std::string& name);
 

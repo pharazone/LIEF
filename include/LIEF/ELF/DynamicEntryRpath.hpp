@@ -32,7 +32,7 @@ class LIEF_API DynamicEntryRpath : public DynamicEntry {
     using DynamicEntry::DynamicEntry;
     DynamicEntryRpath(void);
 
-    DynamicEntryRpath(const std::string& name = "");
+    DynamicEntryRpath(const std::string& name);
 
     //! @brief Constructor from a list of paths
     DynamicEntryRpath(const std::vector<std::string>& paths);

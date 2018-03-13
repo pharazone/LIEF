@@ -33,7 +33,7 @@ class LIEF_API DynamicEntryRunPath : public DynamicEntry {
     DynamicEntryRunPath(void);
 
     //! @brief Constructor from (run)path
-    DynamicEntryRunPath(const std::string& name = "");
+    DynamicEntryRunPath(const std::string& name);
 
     //! @brief Constructor from a list of paths
     DynamicEntryRunPath(const std::vector<std::string>& paths);

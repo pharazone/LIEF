@@ -22,7 +22,11 @@
 namespace LIEF {
 namespace ELF {
 
-DynamicEntryRpath::DynamicEntryRpath(void) = default;
+DynamicEntryRpath::DynamicEntryRpath(void) :
+  DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_RPATH, 0},
+  rpath_{}
+{}
+
 DynamicEntryRpath& DynamicEntryRpath::operator=(const DynamicEntryRpath&) = default;
 DynamicEntryRpath::DynamicEntryRpath(const DynamicEntryRpath&) = default;
 
