@@ -1,5 +1,5 @@
 version: 0.7.{build}
-image: Visual Studio 2015
+image: Visual Studio 2017
 clone_folder: c:\projects\lief
 
 configuration: Release
