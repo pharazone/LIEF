@@ -1,6 +1,7 @@
 #ifndef LIEF_ELF_ENUMS_H_
 #define LIEF_ELF_ENUMS_H_
 #include "LIEF/enums.hpp"
+#include "LIEF/ELF/undef.h"
 
 namespace LIEF {
 namespace ELF {

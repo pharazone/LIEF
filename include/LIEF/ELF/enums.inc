@@ -828,58 +828,58 @@ enum {
 
 enum _LIEF_EN(AUX_TYPE) {
 
-   AT_NULL          = 0,     /**< End of vector */
-   AT_IGNORE        = 1,     /**< Entry should be ignored */
-   AT_EXECFD        = 2,     /**< File descriptor of program */
-   AT_PHDR          = 3,     /**< Program headers for program */
-   AT_PHENT         = 4,     /**< Size of program header entry */
-   AT_PHNUM         = 5,     /**< Number of program headers */
-   AT_PAGESZ        = 6,     /**< System page size */
-   AT_BASE          = 7,     /**< Base address of interpreter */
-   AT_FLAGS         = 8,     /**< Flags */
-   AT_ENTRY         = 9,     /**< Entry point of program */
-   AT_NOTELF        = 10,    /**< Program is not ELF */
-   AT_UID           = 11,    /**< Real uid */
-   AT_EUID          = 12,    /**< Effective uid */
-   AT_GID           = 13,    /**< Real gid */
-   AT_EGID          = 14,    /**< Effective gid */
-   AT_CLKTCK        = 17,    /**< Frequency of times() */
+   _LIEF_EI(AT_NULL)          = 0,     /**< End of vector */
+   _LIEF_EI(AT_IGNORE)        = 1,     /**< Entry should be ignored */
+   _LIEF_EI(AT_EXECFD)        = 2,     /**< File descriptor of program */
+   _LIEF_EI(AT_PHDR)          = 3,     /**< Program headers for program */
+   _LIEF_EI(AT_PHENT)         = 4,     /**< Size of program header entry */
+   _LIEF_EI(AT_PHNUM)         = 5,     /**< Number of program headers */
+   _LIEF_EI(AT_PAGESZ)        = 6,     /**< System page size */
+   _LIEF_EI(AT_BASE)          = 7,     /**< Base address of interpreter */
+   _LIEF_EI(AT_FLAGS)         = 8,     /**< Flags */
+   _LIEF_EI(AT_ENTRY)         = 9,     /**< Entry point of program */
+   _LIEF_EI(AT_NOTELF)        = 10,    /**< Program is not ELF */
+   _LIEF_EI(AT_UID)           = 11,    /**< Real uid */
+   _LIEF_EI(AT_EUID)          = 12,    /**< Effective uid */
+   _LIEF_EI(AT_GID)           = 13,    /**< Real gid */
+   _LIEF_EI(AT_EGID)          = 14,    /**< Effective gid */
+   _LIEF_EI(AT_CLKTCK)        = 17,    /**< Frequency of times() */
 
    /* Some more special a_type values describing the hardware.  */
 
-   AT_PLATFORM      = 15,    /**< String identifying platform.  */
-   AT_HWCAP         = 16,    /**< Machine dependent hints about processor capabilities.  */
+   _LIEF_EI(AT_PLATFORM)      = 15,    /**< String identifying platform.  */
+   _LIEF_EI(AT_HWCAP)         = 16,    /**< Machine dependent hints about processor capabilities.  */
 
    /* This entry g  ives some information about the FPU initialization
       performed by   the kernel.  */
 
-   AT_FPUCW         = 18,    /**< Used FPU control word.  */
+   _LIEF_EI(AT_FPUCW)        = 18,    /**< Used FPU control word.  */
 
    /* Cache block sizes. */
-   AT_DCACHEBSIZE   = 19,    /**< Data cache block size.  */
-   AT_ICACHEBSIZE   = 20,    /**< Instruction cache block size.  */
-   AT_UCACHEBSIZE   = 21,    /**< Unified cache block size.  */
+   _LIEF_EI(AT_DCACHEBSIZE)   = 19,    /**< Data cache block size.  */
+   _LIEF_EI(AT_ICACHEBSIZE)   = 20,    /**< Instruction cache block size.  */
+   _LIEF_EI(AT_UCACHEBSIZE)   = 21,    /**< Unified cache block size.  */
 
    /* A special ig  nored value for PPC, used by the kernel to control the
       interpretati  on of the AUXV. Must be > 16.  */
 
-   AT_IGNOREPPC     = 22,    /**< Entry should be ignored.  */
-   AT_SECURE        = 23,    /**< Boolean, was exec setuid-like?  */
-   AT_BASE_PLATFORM = 24,    /**< String identifying real platforms.*/
-   AT_RANDOM        = 25,    /**< Address of 16 random bytes.  */
-   AT_EXECFN        = 31,    /**< Filename of executable.  */
+   _LIEF_EI(AT_IGNOREPPC)     = 22,    /**< Entry should be ignored.  */
+   _LIEF_EI(AT_SECURE)        = 23,    /**< Boolean, was exec setuid-like?  */
+   _LIEF_EI(AT_BASE_PLATFORM) = 24,    /**< String identifying real platforms.*/
+   _LIEF_EI(AT_RANDOM)        = 25,    /**< Address of 16 random bytes.  */
+   _LIEF_EI(AT_EXECFN)        = 31,    /**< Filename of executable.  */
 
    /* Pointer to the global system page used for system calls and other
       nice things.  */
-   AT_SYSINFO       = 32,
-   AT_SYSINFO_EHDR  = 33,
+   _LIEF_EI(AT_SYSINFO)       = 32,
+   _LIEF_EI(AT_SYSINFO_EHDR)  = 33,
 
    /* Shapes of the caches.  Bits 0-3 contains associativity; bits 4-7 contains
       log2 of line size; mask those to get cache size.  */
-   AT_L1I_CACHESHAPE  = 34,
-   AT_L1D_CACHESHAPE  = 35,
-   AT_L2_CACHESHAPE   = 36,
-   AT_L3_CACHESHAPE   = 37
+   _LIEF_EI(AT_L1I_CACHESHAPE)  = 34,
+   _LIEF_EI(AT_L1D_CACHESHAPE)  = 35,
+   _LIEF_EI(AT_L2_CACHESHAPE)   = 36,
+   _LIEF_EI(AT_L3_CACHESHAPE)   = 37
 };
 
 /** Methods that can be used by the LIEF::ELF::Parser
