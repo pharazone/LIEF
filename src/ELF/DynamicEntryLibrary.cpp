@@ -24,15 +24,6 @@ DynamicEntryLibrary::DynamicEntryLibrary(void) = default;
 DynamicEntryLibrary& DynamicEntryLibrary::operator=(const DynamicEntryLibrary&) = default;
 DynamicEntryLibrary::DynamicEntryLibrary(const DynamicEntryLibrary&) = default;
 
-DynamicEntryLibrary::DynamicEntryLibrary(const Elf64_Dyn* header) :
-  DynamicEntry{header}
-{}
-
-
-DynamicEntryLibrary::DynamicEntryLibrary(const Elf32_Dyn* header) :
-  DynamicEntry{header}
-{}
-
 DynamicEntryLibrary::DynamicEntryLibrary(const std::string& name) :
   DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_NEEDED, 0},
   libname_{name}

@@ -28,8 +28,6 @@ class LIEF_API DynamicEntryArray : public DynamicEntry {
 
   public:
     using DynamicEntry::DynamicEntry;
-    DynamicEntryArray(const Elf64_Dyn* header);
-    DynamicEntryArray(const Elf32_Dyn* header);
     DynamicEntryArray(void);
 
     DynamicEntryArray& operator=(const DynamicEntryArray&);
@@ -61,6 +59,8 @@ class LIEF_API DynamicEntryArray : public DynamicEntry {
     virtual void accept(Visitor& visitor) const override;
 
     virtual std::ostream& print(std::ostream& os) const override;
+
+    virtual ~DynamicEntryArray(void);
 
   private:
     std::vector<uint64_t> array_;

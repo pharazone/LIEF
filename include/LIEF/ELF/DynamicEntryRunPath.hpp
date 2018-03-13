@@ -30,8 +30,6 @@ class LIEF_API DynamicEntryRunPath : public DynamicEntry {
     static constexpr char delimiter = ':';
     using DynamicEntry::DynamicEntry;
 
-    DynamicEntryRunPath(const Elf64_Dyn* header);
-    DynamicEntryRunPath(const Elf32_Dyn* header);
     DynamicEntryRunPath(void);
 
     //! @brief Constructor from (run)path

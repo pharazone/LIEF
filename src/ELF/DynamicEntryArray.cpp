@@ -25,14 +25,6 @@ DynamicEntryArray::DynamicEntryArray(void) = default;
 DynamicEntryArray& DynamicEntryArray::operator=(const DynamicEntryArray&) = default;
 DynamicEntryArray::DynamicEntryArray(const DynamicEntryArray&) = default;
 
-DynamicEntryArray::DynamicEntryArray(const Elf64_Dyn* header) :
-  DynamicEntry{header}
-{}
-
-DynamicEntryArray::DynamicEntryArray(const Elf32_Dyn* header) :
-  DynamicEntry{header}
-{}
-
 std::vector<uint64_t>& DynamicEntryArray::array(void) {
   return const_cast<std::vector<uint64_t>&>(static_cast<const DynamicEntryArray*>(this)->array());
 }
@@ -121,6 +113,9 @@ std::ostream& DynamicEntryArray::print(std::ostream& os) const {
 
   return os;
 }
+
+
+DynamicEntryArray::~DynamicEntryArray(void) = default;
 
 }
 }

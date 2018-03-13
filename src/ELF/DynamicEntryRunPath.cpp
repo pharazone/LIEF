@@ -26,15 +26,6 @@ DynamicEntryRunPath::DynamicEntryRunPath(void) = default;
 DynamicEntryRunPath& DynamicEntryRunPath::operator=(const DynamicEntryRunPath&) = default;
 DynamicEntryRunPath::DynamicEntryRunPath(const DynamicEntryRunPath&) = default;
 
-DynamicEntryRunPath::DynamicEntryRunPath(const Elf64_Dyn* header) :
-  DynamicEntry{header}
-{}
-
-
-DynamicEntryRunPath::DynamicEntryRunPath(const Elf32_Dyn* header) :
-  DynamicEntry{header}
-{}
-
 DynamicEntryRunPath::DynamicEntryRunPath(const std::string& runpath) :
   DynamicEntry::DynamicEntry{DYNAMIC_TAGS::DT_RUNPATH, 0},
   runpath_{runpath}

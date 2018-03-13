@@ -30,9 +30,6 @@ class LIEF_API DynamicEntryRpath : public DynamicEntry {
   public:
     static constexpr char delimiter = ':';
     using DynamicEntry::DynamicEntry;
-
-    DynamicEntryRpath(const Elf64_Dyn* header);
-    DynamicEntryRpath(const Elf32_Dyn* header);
     DynamicEntryRpath(void);
 
     DynamicEntryRpath(const std::string& name = "");
