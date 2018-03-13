@@ -21,6 +21,8 @@
 
 #include "LIEF/ELF/EnumToString.hpp"
 
+#include "Object.tcc"
+
 namespace LIEF {
 namespace ELF {
 
@@ -491,11 +493,44 @@ void Builder::build_dynamic_section(void) {
 
     switch (entry->tag()) {
       case DYNAMIC_TAGS::DT_NEEDED:
+        {
+          const std::string& name = entry->as<DynamicEntryLibrary>()->name();
+          dynamic_strings_raw.insert(
+              std::end(dynamic_strings_raw),
+              std::begin(name),
+              std::end(name));
+          dynamic_strings_raw.push_back(0);
+          entry->value(dynamic_strings_raw.size() - (name.size() + 1));
+          break;
+        }
+
       case DYNAMIC_TAGS::DT_SONAME:
+        {
+          const std::string& name = entry->as<DynamicSharedObject>()->name();
+          dynamic_strings_raw.insert(
+              std::end(dynamic_strings_raw),
+              std::begin(name),
+              std::end(name));
+          dynamic_strings_raw.push_back(0);
+          entry->value(dynamic_strings_raw.size() - (name.size() + 1));
+          break;
+        }
+
       case DYNAMIC_TAGS::DT_RPATH:
+        {
+          const std::string& name = entry->as<DynamicEntryRpath>()->name();
+          dynamic_strings_raw.insert(
+              std::end(dynamic_strings_raw),
+              std::begin(name),
+              std::end(name));
+          dynamic_strings_raw.push_back(0);
+          entry->value(dynamic_strings_raw.size() - (name.size() + 1));
+          break;
+        }
+
       case DYNAMIC_TAGS::DT_RUNPATH:
         {
-          const std::string& name = entry->name();
+          const std::string& name = entry->as<DynamicEntryRunPath>()->name();
           dynamic_strings_raw.insert(
               std::end(dynamic_strings_raw),
               std::begin(name),
@@ -542,7 +577,7 @@ void Builder::build_dynamic_section(void) {
 
           Section& array_section = this->binary_->section_from_virtual_address(address);
 
-          const std::vector<uint64_t>& array = dynamic_cast<const DynamicEntryArray*>(entry)->array();
+          const std::vector<uint64_t>& array = entry->as<DynamicEntryArray>()->array();
           const size_t array_size = array.size() * sizeof(Elf_Addr);
 
 

@@ -40,8 +40,8 @@ class LIEF_API DynamicEntryRpath : public DynamicEntry {
     DynamicEntryRpath& operator=(const DynamicEntryRpath&);
     DynamicEntryRpath(const DynamicEntryRpath&);
 
-    virtual const std::string& name(void) const override;
-    virtual void name(const std::string& name) override;
+    const std::string& name(void) const;
+    void name(const std::string& name);
 
     const std::string& rpath(void) const;
     void rpath(const std::string& name);

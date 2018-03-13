@@ -48,12 +48,6 @@ void init_ELF_DynamicEntry_class(py::module& m) {
         static_cast<setter_t<uint64_t>>(&DynamicEntry::value),
         "Return the entry's value.")
 
-    .def_property("name",
-        static_cast<getter_t<const std::string&>>(&DynamicEntry::name),
-        static_cast<setter_t<const std::string&>>(&DynamicEntry::name),
-        "Depending on the entry type, it return a name. For instance for a ``DT_SONAME``\
-        entry it returns the library name")
-
     .def("__eq__", &DynamicEntry::operator==)
     .def("__ne__", &DynamicEntry::operator!=)
     .def("__hash__",

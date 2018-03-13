@@ -69,26 +69,6 @@ void DynamicEntry::value(uint64_t value) {
   this->value_ = value;
 }
 
-
-const std::string& DynamicEntry::name(void) const {
-  throw LIEF::not_found("This dynamic hasn't name field");
-}
-
-
-void DynamicEntry::name(const std::string&) {
-  throw LIEF::not_found("This dynamic hasn't name field");
-}
-
-
-std::vector<uint64_t>& DynamicEntry::array(void) {
-  throw LIEF::not_found("This dynamic entry hasn't array");
-}
-
-
-void DynamicEntry::array(const std::vector<uint64_t>&) {
-  throw LIEF::not_found("This dynamic entry hasn't array");
-}
-
 void DynamicEntry::accept(Visitor& visitor) const {
   visitor.visit(*this);
 }

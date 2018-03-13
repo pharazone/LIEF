@@ -25,16 +25,16 @@ DynamicEntryArray::DynamicEntryArray(void) = default;
 DynamicEntryArray& DynamicEntryArray::operator=(const DynamicEntryArray&) = default;
 DynamicEntryArray::DynamicEntryArray(const DynamicEntryArray&) = default;
 
-std::vector<uint64_t>& DynamicEntryArray::array(void) {
-  return const_cast<std::vector<uint64_t>&>(static_cast<const DynamicEntryArray*>(this)->array());
+DynamicEntryArray::array_t& DynamicEntryArray::array(void) {
+  return const_cast<DynamicEntryArray::array_t&>(static_cast<const DynamicEntryArray*>(this)->array());
 }
 
 
-const std::vector<uint64_t>& DynamicEntryArray::array(void) const {
+const DynamicEntryArray::array_t& DynamicEntryArray::array(void) const {
   return this->array_;
 }
 
-void DynamicEntryArray::array(const std::vector<uint64_t>& array) {
+void DynamicEntryArray::array(const DynamicEntryArray::array_t& array) {
   this->array_ = array;
 }
 
@@ -94,7 +94,7 @@ void DynamicEntryArray::accept(Visitor& visitor) const {
 }
 
 std::ostream& DynamicEntryArray::print(std::ostream& os) const {
-  const std::vector<uint64_t>& array = this->array();
+  const DynamicEntryArray::array_t& array = this->array();
   DynamicEntry::print(os);
   os << std::hex
      << std::left

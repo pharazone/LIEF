@@ -38,6 +38,7 @@
 #include "LIEF/ELF/hash.hpp"
 
 #include "Binary.tcc"
+#include "Object.tcc"
 
 namespace LIEF {
 namespace ELF {
@@ -1837,7 +1838,7 @@ void Binary::shift_dynamic_entries(uint64_t from, uint64_t shift) {
       case DYNAMIC_TAGS::DT_FINI_ARRAY:
       case DYNAMIC_TAGS::DT_PREINIT_ARRAY:
         {
-          std::vector<uint64_t>& array = entry->array();
+          DynamicEntryArray::array_t& array = entry->as<DynamicEntryArray>()->array();
           for (uint64_t& address : array) {
             if (address >= from) {
               if (

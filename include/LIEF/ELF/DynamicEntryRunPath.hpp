@@ -42,8 +42,8 @@ class LIEF_API DynamicEntryRunPath : public DynamicEntry {
     DynamicEntryRunPath(const DynamicEntryRunPath&);
 
     //! @brief Runpath raw value
-    virtual const std::string& name(void) const override;
-    virtual void name(const std::string& name) override;
+    const std::string& name(void) const;
+    void name(const std::string& name);
 
     //! @brief Runpath raw value
     const std::string& runpath(void) const;

@@ -46,12 +46,6 @@ class LIEF_API DynamicEntry : public Object {
     void tag(DYNAMIC_TAGS tag);
     void value(uint64_t value);
 
-    virtual const std::string& name(void) const;
-    virtual void name(const std::string& name);
-
-    virtual std::vector<uint64_t>& array(void);
-    virtual void array(const std::vector<uint64_t>& array);
-
     virtual void accept(Visitor& visitor) const override;
 
     virtual std::ostream& print(std::ostream& os) const;
